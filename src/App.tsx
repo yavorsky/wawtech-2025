@@ -22,6 +22,26 @@ import { ItWorksGreatSlide } from '@/slides/ItWorksGreatSlide'
 import { UsersWantedCodeSlide } from '@/slides/UsersWantedCodeSlide'
 import { TokenUsageSlide } from '@/slides/TokenUsageSlide'
 import { OutputInconsistencySlide } from '@/slides/OutputInconsistencySlide'
+import { BrokenResponsesSlide } from '@/slides/BrokenResponsesSlide'
+import { ContextExplosionSlide } from '@/slides/ContextExplosionSlide'
+import { ForgetSlide } from '@/slides/ForgetSlide'
+import { CantForgetSlide } from '@/slides/CantForgetSlide'
+import { DelusionSlide } from '@/slides/DelusionSlide'
+import { CapabilitiesSlide } from '@/slides/CapabilitiesSlide'
+import { LazyLoadingSlide } from '@/slides/LazyLoadingSlide'
+import { SummarizeHistorySlide } from '@/slides/SummarizeHistorySlide'
+import { RagRetrievalSlide } from '@/slides/RagRetrievalSlide'
+import { SubAgentsSlide } from '@/slides/SubAgentsSlide'
+import { WhyNothingWorkedSlide } from '@/slides/WhyNothingWorkedSlide'
+import { TheQuestionSlide } from '@/slides/TheQuestionSlide'
+import { FlashbackMemeSlide } from '@/slides/FlashbackMemeSlide'
+import { BabelInspirationSlide } from '@/slides/BabelInspirationSlide'
+import { ScopesArchitectureSlide } from '@/slides/ScopesArchitectureSlide'
+import { ScopesPatternSlide } from '@/slides/ScopesPatternSlide'
+import { CodeAgentFlowSlide } from '@/slides/CodeAgentFlowSlide'
+import { TemplateSelectionScopeSlide } from '@/slides/TemplateSelectionScopeSlide'
+import { SpecCreationScopeSlide } from '@/slides/SpecCreationScopeSlide'
+import { PhaseImplementationScopeSlide } from '@/slides/PhaseImplementationScopeSlide'
 
 function App() {
   return (
@@ -49,6 +69,26 @@ function App() {
       <UsersWantedCodeSlide />
       <TokenUsageSlide />
       <OutputInconsistencySlide />
+      <BrokenResponsesSlide />
+      <ContextExplosionSlide />
+      <ForgetSlide />
+      <CantForgetSlide />
+      <DelusionSlide />
+      <LazyLoadingSlide />
+      <CapabilitiesSlide />
+      <SummarizeHistorySlide />
+      <RagRetrievalSlide />
+      <SubAgentsSlide />
+      <WhyNothingWorkedSlide />
+      <TheQuestionSlide />
+      <FlashbackMemeSlide />
+      <BabelInspirationSlide />
+      <ScopesArchitectureSlide />
+      <ScopesPatternSlide />
+      <CodeAgentFlowSlide />
+      <TemplateSelectionScopeSlide />
+      <SpecCreationScopeSlide />
+      <PhaseImplementationScopeSlide />
     </Presentation>
   )
 }
