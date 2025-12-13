@@ -42,6 +42,17 @@ import { CodeAgentFlowSlide } from '@/slides/CodeAgentFlowSlide'
 import { TemplateSelectionScopeSlide } from '@/slides/TemplateSelectionScopeSlide'
 import { SpecCreationScopeSlide } from '@/slides/SpecCreationScopeSlide'
 import { PhaseImplementationScopeSlide } from '@/slides/PhaseImplementationScopeSlide'
+import { ReviewingScopeSlide } from '@/slides/ReviewingScopeSlide'
+import { UserFeedbackScopeSlide } from '@/slides/UserFeedbackScopeSlide'
+import { ScopesVsProblemsSlide } from '@/slides/ScopesVsProblemsSlide'
+import { ResultsSlide } from '@/slides/ResultsSlide'
+import { MaintainSlide } from '@/slides/MaintainSlide'
+import { UnbuiltSlide } from '@/slides/UnbuiltSlide'
+import { RoutinesSlide } from '@/slides/RoutinesSlide'
+import { WhenToUseScopesSlide } from '@/slides/WhenToUseScopesSlide'
+import { PrinciplesSlide } from '@/slides/PrinciplesSlide'
+import { RealizationSlide } from '@/slides/RealizationSlide'
+import { ThanksSlide } from '@/slides/ThanksSlide'
 
 function App() {
   return (
@@ -89,6 +100,17 @@ function App() {
       <TemplateSelectionScopeSlide />
       <SpecCreationScopeSlide />
       <PhaseImplementationScopeSlide />
+      <ReviewingScopeSlide />
+      <UserFeedbackScopeSlide />
+      <ScopesVsProblemsSlide />
+      <ResultsSlide />
+      <MaintainSlide />
+      <UnbuiltSlide />
+      <RoutinesSlide />
+      <WhenToUseScopesSlide />
+      <PrinciplesSlide />
+      <RealizationSlide />
+      <ThanksSlide />
     </Presentation>
   )
 }

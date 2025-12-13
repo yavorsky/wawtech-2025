@@ -6,7 +6,7 @@ import { usePresentationContext } from '@/context/PresentationContext'
 export function PhaseImplementationScopeSlide() {
   const { nextSlide } = usePresentationContext()
   const { isVisible, isComplete } = useSteppedReveal({
-    totalSteps: 6,
+    totalSteps: 7,
     onComplete: nextSlide,
   })
 
@@ -41,21 +41,30 @@ export function PhaseImplementationScopeSlide() {
               <div className="bg-black/30 rounded-xl p-3 font-mono text-lg text-white">
                 "Setup Timer Component"
               </div>
-              <div className="mt-3 bg-black/20 rounded-lg p-3 text-sm">
-                <div className="text-yellow-400 font-bold mb-2">Implementation Plan:</div>
-                <div className="space-y-1 text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <span className="text-slate-500">1.</span>
-                    <span>Install framer-motion dependency</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-slate-500">2.</span>
-                    <span>Create Timer.tsx component</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-slate-500">3.</span>
-                    <span>Update HomePage to render Timer</span>
-                  </div>
+            </motion.div>
+
+            {/* Phase Implementation Strategy from Blueprint */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: isVisible(1) ? 1 : 0.2, x: isVisible(1) ? 0 : -30 }}
+              className="bg-yellow-500/10 border border-yellow-500/50 rounded-2xl p-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-base text-yellow-400">From spec.implementation:</span>
+                <span className="text-xs text-slate-500">Phase Implementation Strategy</span>
+              </div>
+              <div className="bg-black/20 rounded-lg p-3 text-sm space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500">1.</span>
+                  <span className="text-slate-300">Install framer-motion dependency</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500">2.</span>
+                  <span className="text-slate-300">Create Timer.tsx component</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500">3.</span>
+                  <span className="text-slate-300">Update HomePage to import & render</span>
                 </div>
               </div>
             </motion.div>
@@ -63,14 +72,14 @@ export function PhaseImplementationScopeSlide() {
             {/* History + Blueprint */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: isVisible(1) ? 1 : 0.2, x: isVisible(1) ? 0 : -30 }}
+              animate={{ opacity: isVisible(2) ? 1 : 0.2, x: isVisible(2) ? 0 : -30 }}
               className="bg-purple-500/10 border border-purple-500/50 rounded-2xl p-4"
             >
               <div className="text-base text-purple-400 mb-2">Full Context:</div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
                   <span className="text-yellow-400">📋</span>
-                  <span className="text-white">spec.json</span>
+                  <span className="text-white">spec.implementation</span>
                   <span className="text-slate-500">→ Blueprint</span>
                 </div>
                 <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
@@ -92,7 +101,7 @@ export function PhaseImplementationScopeSlide() {
             {/* Available Tools + MCP */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: isVisible(2) ? 1 : 0.2, x: isVisible(2) ? 0 : -30 }}
+              animate={{ opacity: isVisible(3) ? 1 : 0.2, x: isVisible(3) ? 0 : -30 }}
               className="bg-pink-500/10 border border-pink-500/50 rounded-2xl p-4"
             >
               <div className="flex items-center gap-2 mb-2">
@@ -106,6 +115,48 @@ export function PhaseImplementationScopeSlide() {
                 <div className="bg-black/20 rounded-lg px-3 py-2 text-pink-300">web_search()</div>
               </div>
             </motion.div>
+
+            {/* System Prompt with usage.md */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: isVisible(4) ? 1 : 0.2, x: isVisible(4) ? 0 : -30 }}
+              className="bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/50 rounded-2xl p-4"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">✨</span>
+                <span className="text-base text-cyan-400 font-bold">System Prompt</span>
+              </div>
+
+              {/* usage.md from template */}
+              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-2 mb-3">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-yellow-400 text-xs font-bold">usage.md</span>
+                  <span className="text-slate-500 text-xs">from templateScope</span>
+                </div>
+                <div className="text-xs text-slate-400 space-y-0.5">
+                  <div>• ShadCN UI, Tailwind, Vite</div>
+                  <div>• Custom colors in tailwind.config</div>
+                  <div>• Icons from lucide-react</div>
+                </div>
+              </div>
+
+              {/* Visual Excellence */}
+              <div className="text-xs text-purple-400 font-bold mb-2">Visual Excellence:</div>
+              <div className="space-y-1.5 text-xs">
+                <div className="bg-black/20 rounded-lg px-2 py-1.5">
+                  <span className="text-purple-300">Rich Tailwind:</span>
+                  <span className="text-slate-400"> gradients, shadows</span>
+                </div>
+                <div className="bg-black/20 rounded-lg px-2 py-1.5">
+                  <span className="text-pink-300">Interactions:</span>
+                  <span className="text-slate-400"> hover, focus, animations</span>
+                </div>
+                <div className="bg-black/20 rounded-lg px-2 py-1.5">
+                  <span className="text-cyan-300">Visual depth:</span>
+                  <span className="text-slate-400"> layers, overlays</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Right - LLM Capabilities */}
@@ -113,7 +164,7 @@ export function PhaseImplementationScopeSlide() {
             {/* LLM Can Now */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: isVisible(3) ? 1 : 0.2, x: isVisible(3) ? 0 : 30 }}
+              animate={{ opacity: isVisible(5) ? 1 : 0.2, x: isVisible(5) ? 0 : 30 }}
               className="bg-green-500/10 border border-green-500/50 rounded-2xl p-4"
             >
               <div className="text-base text-green-400 mb-3">LLM Focuses on Execution:</div>
@@ -147,7 +198,7 @@ export function PhaseImplementationScopeSlide() {
             {/* Bounded */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: isVisible(4) ? 1 : 0.2, x: isVisible(4) ? 0 : 30 }}
+              animate={{ opacity: isVisible(6) ? 1 : 0.2, x: isVisible(6) ? 0 : 30 }}
               className="bg-orange-500/10 border border-orange-500/50 rounded-2xl p-4"
             >
               <div className="text-base text-orange-400 mb-3">BUT: Bounded by Phase</div>
@@ -169,42 +220,13 @@ export function PhaseImplementationScopeSlide() {
                 Focused on THIS task only
               </div>
             </motion.div>
-
-            {/* Visual Excellence */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: isVisible(5) ? 1 : 0.2, x: isVisible(5) ? 0 : 30 }}
-              className="bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/50 rounded-2xl p-4"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">✨</span>
-                <span className="text-base text-cyan-400 font-bold">Visual Excellence in System Prompt</span>
-              </div>
-              <div className="space-y-2 text-xs">
-                <div className="bg-black/20 rounded-lg px-3 py-2">
-                  <span className="text-purple-300">Rich Tailwind:</span>
-                  <span className="text-slate-400"> gradients, shadows, transitions</span>
-                </div>
-                <div className="bg-black/20 rounded-lg px-3 py-2">
-                  <span className="text-pink-300">Interactions:</span>
-                  <span className="text-slate-400"> hover, focus, animations</span>
-                </div>
-                <div className="bg-black/20 rounded-lg px-3 py-2">
-                  <span className="text-cyan-300">Visual depth:</span>
-                  <span className="text-slate-400"> layers, overlays, patterns</span>
-                </div>
-              </div>
-              <div className="text-xs text-slate-500 mt-2 italic">
-                "Minimize changes" = don't break template, NOT "make it boring"
-              </div>
-            </motion.div>
           </div>
         </div>
 
         {/* Bottom summary */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible(5) ? 1 : 0, y: isVisible(5) ? 0 : 20 }}
+          animate={{ opacity: isVisible(6) ? 1 : 0, y: isVisible(6) ? 0 : 20 }}
           className="mt-4 bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/50 rounded-2xl p-4"
         >
           <div className="flex items-center justify-center gap-8 text-center">

@@ -114,68 +114,29 @@ export function SpecCreationScopeSlide() {
               className="bg-green-500/10 border border-green-500/50 rounded-2xl p-4 flex-1"
             >
               <div className="text-base text-green-400 mb-3">LLM Creates Complete Spec:</div>
-              <div className="bg-black/30 rounded-xl p-3 font-mono text-xs space-y-2 max-h-[400px] overflow-y-auto">
-                <div className="text-slate-500">{'{'}</div>
+              <div className="bg-black/30 rounded-xl p-3 font-mono text-xs space-y-1.5 max-h-[400px] overflow-y-auto">
+                <div className="text-yellow-400 font-bold"># Ramen Timer Pro</div>
 
-                <div className="pl-3">
-                  <span className="text-cyan-400">"title"</span>
-                  <span className="text-white">: </span>
-                  <span className="text-green-400">"Ramen Timer Pro"</span>
-                  <span className="text-white">,</span>
+                <div className="text-cyan-400 mt-2">## Design System</div>
+                <div className="pl-3 text-slate-400">Colors, typography, spacing...</div>
+
+                <div className="text-cyan-400 mt-2">## UX Principles</div>
+                <div className="pl-3 text-slate-400">Large touch targets, visual feedback...</div>
+
+                <div className="text-green-400 mt-2 font-bold">## Implementation Strategy</div>
+                <div className="pl-3 space-y-1">
+                  <div className="text-slate-300">Visual excellence requirements:</div>
+                  <div className="text-slate-400 pl-2">• Rich Tailwind: gradients, shadows</div>
+                  <div className="text-slate-400 pl-2">• Hover states, transitions</div>
+                  <div className="text-slate-400 pl-2">• Multiple visual layers</div>
                 </div>
 
-                <div className="pl-3">
-                  <span className="text-cyan-400">"colorPalette"</span>
-                  <span className="text-white">: {'{'}</span>
+                <div className="text-yellow-400 mt-2 font-bold">## Phases</div>
+                <div className="pl-3 space-y-1">
+                  <div className="text-yellow-300">Phase 1: Timer Core</div>
+                  <div className="text-yellow-300">Phase 2: Recipe Steps</div>
+                  <div className="text-yellow-300">Phase 3: Polish & PWA</div>
                 </div>
-                <div className="pl-6 text-slate-400">
-                  primary: "#FF6B35", bg: "#1A1A2E"...
-                </div>
-                <div className="pl-3 text-white">{'},'}</div>
-
-                <div className="pl-3">
-                  <span className="text-cyan-400">"typography"</span>
-                  <span className="text-white">: {'{'}</span>
-                </div>
-                <div className="pl-6 text-slate-400">
-                  headings: "Inter", body: "Inter"...
-                </div>
-                <div className="pl-3 text-white">{'},'}</div>
-
-                <div className="pl-3">
-                  <span className="text-cyan-400">"designSystem"</span>
-                  <span className="text-white">: {'{'}</span>
-                </div>
-                <div className="pl-6 text-slate-400">
-                  spacing, borderRadius, shadows...
-                </div>
-                <div className="pl-3 text-white">{'},'}</div>
-
-                <div className="pl-3">
-                  <span className="text-cyan-400">"uxPrinciples"</span>
-                  <span className="text-white">: [</span>
-                </div>
-                <div className="pl-6 text-slate-400">
-                  "Large touch targets"...
-                </div>
-                <div className="pl-3 text-white">{'],'}</div>
-
-                <div className="pl-3">
-                  <span className="text-cyan-400">"phases"</span>
-                  <span className="text-white">: [</span>
-                </div>
-                <div className="pl-6 text-yellow-400/80">
-                  Phase 1: Timer Core
-                </div>
-                <div className="pl-6 text-yellow-400/80">
-                  Phase 2: Recipe Steps
-                </div>
-                <div className="pl-6 text-yellow-400/80">
-                  Phase 3: Polish & PWA
-                </div>
-                <div className="pl-3 text-white">{']'}</div>
-
-                <div className="text-slate-500">{'}'}</div>
               </div>
             </motion.div>
 
@@ -186,7 +147,7 @@ export function SpecCreationScopeSlide() {
               className="bg-yellow-500/10 border border-yellow-500/50 rounded-2xl p-4"
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-base text-yellow-400">spec.json</span>
+                <span className="text-base text-yellow-400">spec.implementation</span>
                 <span className="text-xs text-slate-500">→ saved to STATE</span>
               </div>
               <div className="bg-black/30 rounded-xl p-3 text-sm">
