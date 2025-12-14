@@ -154,7 +154,7 @@ export function OutputInconsistencySlide() {
             <div className="flex-1 bg-surface rounded-2xl overflow-hidden border border-purple-500/50">
               <video
                 ref={videoRef}
-                src="/rock.mp4"
+                src={`${import.meta.env.BASE_URL}rock.mp4`}
                 className="w-full h-full object-contain"
                 loop
                 muted
