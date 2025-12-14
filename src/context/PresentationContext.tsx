@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
+
+const STORAGE_KEY = 'wawtech-current-slide'
 
 interface PresentationContextType {
   currentSlide: number
@@ -24,9 +26,33 @@ interface PresentationProviderProps {
   totalSlides: number
 }
 
+function getInitialSlide(totalSlides: number): number {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = parseInt(saved, 10)
+      if (!isNaN(parsed) && parsed >= 0 && parsed < totalSlides) {
+        return parsed
+      }
+    }
+  } catch {
+    // localStorage not available
+  }
+  return 0
+}
+
 export function PresentationProvider({ children, totalSlides }: PresentationProviderProps) {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(() => getInitialSlide(totalSlides))
   const [direction, setDirection] = useState<1 | -1>(1)
+
+  // Save current slide to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, currentSlide.toString())
+    } catch {
+      // localStorage not available
+    }
+  }, [currentSlide])
 
   const nextSlide = useCallback(() => {
     setDirection(1)

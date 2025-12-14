@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { SlideLayout } from '@/components/SlideLayout'
 import { useSteppedReveal } from '@/hooks/useSteppedReveal'
 import { usePresentationContext } from '@/context/PresentationContext'
+import { SiNextdotjs, SiReact, SiSvelte } from '@icons-pack/react-simple-icons'
 
 export function TemplateSelectionScopeSlide() {
   const { nextSlide } = usePresentationContext()
@@ -49,16 +50,25 @@ export function TemplateSelectionScopeSlide() {
               <div className="text-lg text-purple-400 mb-3">Templates + selection.md:</div>
               <div className="space-y-2 font-mono text-base">
                 <div className="bg-black/20 rounded-lg p-3">
-                  <div className="text-cyan-400 font-bold">nextjs-tailwind</div>
-                  <div className="text-slate-400 text-sm pl-3 mt-1">→ SEO optimized web apps, SSR</div>
+                  <div className="flex items-center gap-2">
+                    <SiNextdotjs size={18} className="text-white" />
+                    <span className="text-cyan-400 font-bold">nextjs-tailwind</span>
+                  </div>
+                  <div className="text-slate-400 text-sm pl-6 mt-1">→ SEO optimized web apps, SSR</div>
                 </div>
                 <div className="bg-black/20 rounded-lg p-3">
-                  <div className="text-green-400 font-bold">react-vite-ts</div>
-                  <div className="text-slate-400 text-sm pl-3 mt-1">→ Fast UI, quick iteration</div>
+                  <div className="flex items-center gap-2">
+                    <SiReact size={18} className="text-cyan-400" />
+                    <span className="text-green-400 font-bold">react-vite-ts</span>
+                  </div>
+                  <div className="text-slate-400 text-sm pl-6 mt-1">→ Fast UI, quick iteration</div>
                 </div>
                 <div className="bg-black/20 rounded-lg p-3">
-                  <div className="text-orange-400 font-bold">svelte-kit</div>
-                  <div className="text-slate-400 text-sm pl-3 mt-1">→ Lightweight, performance</div>
+                  <div className="flex items-center gap-2">
+                    <SiSvelte size={18} className="text-orange-500" />
+                    <span className="text-orange-400 font-bold">svelte-kit</span>
+                  </div>
+                  <div className="text-slate-400 text-sm pl-6 mt-1">→ Lightweight, performance</div>
                 </div>
               </div>
             </motion.div>

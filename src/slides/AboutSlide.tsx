@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SlideLayout } from '@/components/SlideLayout'
 import { useSteppedReveal } from '@/hooks/useSteppedReveal'
 import { usePresentationContext } from '@/context/PresentationContext'
+import { SiWix, SiNetflix, SiBabel, SiGithub } from '@icons-pack/react-simple-icons'
 
 const sections = [
   {
@@ -13,6 +14,8 @@ const sections = [
       {
         period: '2016-2022',
         company: 'WIX.COM',
+        brandIcon: SiWix,
+        brandColor: '#0C6EFC',
         items: [
           'Dev Experience Team Lead (6 years)',
           'Built CLI used by 2,400 developers',
@@ -22,6 +25,8 @@ const sections = [
       {
         period: '2022-2024',
         company: 'NETFLIX',
+        brandIcon: SiNetflix,
+        brandColor: '#E50914',
         items: [
           'Senior Software Engineer (2 years)',
           'Entertainment systems at scale',
@@ -46,6 +51,8 @@ const sections = [
     content: [
       {
         company: 'BABEL.JS',
+        brandIcon: SiBabel,
+        brandColor: '#F9DC3E',
         subtitle: 'Core Team Member',
         items: [
           'The JavaScript compiler',
@@ -54,6 +61,8 @@ const sections = [
       },
       {
         company: 'UNBUILT.APP',
+        brandIcon: SiGithub,
+        brandColor: '#ffffff',
         subtitle: 'Creator',
         items: [
           'Fastest web stack analyzer',
@@ -112,33 +121,39 @@ function SectionContent({ section }: { section: typeof sections[0] }) {
 
   return (
     <div className="space-y-10">
-      {section.content?.map((item, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1 + i * 0.15 }}
-          className="space-y-3"
-        >
-          <div className="flex items-center gap-5">
-            {item.period && (
-              <span className="text-cyan-500 font-mono text-2xl">{item.period}</span>
-            )}
-            <span className="text-white font-bold text-3xl">{item.company}</span>
-            {item.subtitle && (
-              <span className="text-text-secondary text-2xl">— {item.subtitle}</span>
-            )}
-          </div>
-          <div className="ml-8 border-l-3 border-purple-500/30 pl-8 space-y-3">
-            {item.items.map((text, j) => (
-              <div key={j} className="text-text-secondary text-2xl flex items-center gap-4">
-                <span className="text-purple-400">├─</span>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      ))}
+      {section.content?.map((item, i) => {
+        const BrandIcon = item.brandIcon
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 + i * 0.15 }}
+            className="space-y-3"
+          >
+            <div className="flex items-center gap-5">
+              {item.period && (
+                <span className="text-cyan-500 font-mono text-2xl">{item.period}</span>
+              )}
+              {BrandIcon && (
+                <BrandIcon size={28} color={item.brandColor} />
+              )}
+              <span className="text-white font-bold text-3xl">{item.company}</span>
+              {item.subtitle && (
+                <span className="text-text-secondary text-2xl">— {item.subtitle}</span>
+              )}
+            </div>
+            <div className="ml-8 border-l-3 border-purple-500/30 pl-8 space-y-3">
+              {item.items.map((text, j) => (
+                <div key={j} className="text-text-secondary text-2xl flex items-center gap-4">
+                  <span className="text-purple-400">├─</span>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )
+      })}
     </div>
   )
 }
