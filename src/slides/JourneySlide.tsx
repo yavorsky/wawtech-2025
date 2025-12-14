@@ -30,7 +30,7 @@ const acts = [
     number: 'I',
     title: 'THE COLLISION',
     items: [
-      '10 years building deterministic systems',
+      'My background',
       'Then: LLMs',
       "Everything I knew... didn't work?",
     ],
@@ -39,10 +39,9 @@ const acts = [
     number: 'II',
     title: 'THE STRUGGLE',
     items: [
-      'Built Action AI at Writer',
+      'Building AI agents',
       { text: 'Simple tasks:', status: 'success' },
       { text: 'Complex tasks:', status: 'error' },
-      'Every fix made it worse',
     ],
   },
   {
@@ -50,55 +49,63 @@ const acts = [
     title: 'THE REALIZATION',
     items: [
       'Debugging at 2am',
-      'Suddenly remembered something',
+      'Suddenly remembered something...',
       'What if...?',
-      'Live demo: Does it actually work?',
     ],
   },
   {
     number: 'IV',
     title: 'THE PATTERN',
     items: [
-      'Turns out: It generalizes',
-      'Not just code generation',
-      'A different way to think about AI',
-      'What this means for all of us',
+      'A different way to think about AI agents',
+      'When to use it',
+      'Takeaways',
     ],
   },
 ]
 
-function ActCard({ act, isVisible, isActive }: { act: typeof acts[0]; isVisible: boolean; isActive: boolean }) {
+const actColors = [
+  { border: 'border-cyan-500/50', shadow: 'shadow-[4px_4px_0px_0px_rgba(6,182,212,0.4)]', accent: 'text-cyan-400' },
+  { border: 'border-purple-500/50', shadow: 'shadow-[4px_4px_0px_0px_rgba(168,85,247,0.4)]', accent: 'text-purple-400' },
+  { border: 'border-pink-500/50', shadow: 'shadow-[4px_4px_0px_0px_rgba(236,72,153,0.4)]', accent: 'text-pink-400' },
+  { border: 'border-green-500/50', shadow: 'shadow-[4px_4px_0px_0px_rgba(34,197,94,0.4)]', accent: 'text-green-400' },
+]
+
+function ActCard({ act, isVisible, isActive, index }: { act: typeof acts[0]; isVisible: boolean; isActive: boolean; index: number }) {
+  const colors = actColors[index]
+  const rotation = index % 2 === 0 ? -1 : 1
+
   return (
     <motion.div
-      initial={{ opacity: 0.3, scale: 0.95 }}
+      initial={{ opacity: 0.3, scale: 0.95, rotate: 0 }}
       animate={{
         opacity: isVisible ? 1 : 0.3,
         scale: isVisible ? 1 : 0.95,
-        borderColor: isActive ? 'rgba(6, 182, 212, 0.6)' : isVisible ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.1)',
+        rotate: isVisible ? rotation : 0,
       }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="bg-surface/50 border-2 rounded-xl p-4"
+      className={`bg-surface/50 border-2 ${colors.border} p-5 ${colors.shadow}`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="text-cyan-500 font-mono text-lg font-bold">
+        <span className={`${colors.accent} font-mono text-xl font-bold`}>
           ACT {act.number}
         </span>
-        <h3 className="text-xl font-semibold text-white">{act.title}</h3>
+        <h3 className="text-2xl font-bold text-white">{act.title}</h3>
       </div>
       <ul className="space-y-2">
         {act.items.map((item, i) => (
-          <li key={i} className="flex items-center gap-2 text-text-secondary text-lg">
-            <span className="text-purple-400 text-2xl">•</span>
+          <li key={i} className="flex items-center gap-2 text-text-secondary text-xl">
+            <span className={`${colors.accent} text-2xl`}>•</span>
             {typeof item === 'string' ? (
               <span>{item}</span>
             ) : (
               <span className="flex items-center gap-3">
                 {item.text}
                 {item.status === 'success' && (
-                  <span className="text-green-400">✓ worked</span>
+                  <span className="text-green-400 font-bold">✓ worked</span>
                 )}
                 {item.status === 'error' && (
-                  <span className="text-red-400">✗ failed</span>
+                  <span className="text-red-400 font-bold">✗ failed</span>
                 )}
               </span>
             )}
@@ -125,48 +132,37 @@ export function JourneySlide() {
         className="flex flex-col h-full items-center"
       >
         {/* Header */}
-        <motion.div variants={itemVariants} className="mb-6 text-center">
-          <p className="text-cyan-500 font-mono text-lg mb-2 tracking-wider">
-            WHAT WE'LL COVER
-          </p>
+        <motion.div variants={itemVariants} className="mb-8 text-center">
           <h1 className="text-5xl lg:text-6xl font-bold text-white">
             Today's Journey
           </h1>
         </motion.div>
 
         {/* Acts Grid */}
-        <div className="grid grid-cols-2 gap-4 max-w-6xl w-full">
+        <div className="grid grid-cols-2 gap-6 max-w-6xl w-full">
           {acts.map((act, index) => (
             <ActCard
               key={act.number}
               act={act}
               isVisible={isVisible(index)}
               isActive={isActive(index)}
+              index={index}
             />
           ))}
         </div>
 
         {/* Footer */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isComplete ? 1 : 0.5 }}
+        <motion.div
+          initial={{ opacity: 0, rotate: 0 }}
+          animate={{ opacity: isComplete ? 1 : 0.5, rotate: isComplete ? -1 : 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-6 text-text-secondary text-center italic text-xl"
+          className="mt-8 bg-surface/50 border-2 border-white/20 px-8 py-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
         >
-          A personal story about learning to build systems that think back.
-        </motion.p>
+          <p className="text-text-secondary text-center text-xl">
+            A personal story about learning to build systems that think back.
+          </p>
+        </motion.div>
 
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="mt-4 text-text-secondary text-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Press <kbd className="px-3 py-1 bg-surface rounded text-cyan-400 font-mono mx-1">Space</kbd> to reveal next
-          </motion.div>
-        )}
       </motion.div>
     </SlideLayout>
   )

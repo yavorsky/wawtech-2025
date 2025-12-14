@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { FunTitle } from '@/components/FunTitle'
 import { usePresentationContext } from '@/context/PresentationContext'
 
 export function ContextExplosionSlide() {
@@ -157,22 +158,15 @@ export function ContextExplosionSlide() {
   return (
     <div className="w-full h-full bg-background flex flex-col p-8 lg:p-12">
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-6"
-      >
-        <div className="text-2xl text-red-400 font-bold mb-2">PROBLEM 3</div>
-        <h1 className="text-5xl lg:text-6xl font-bold text-white">
-          Context <span className="text-red-400">Explosion</span>
-        </h1>
-      </motion.div>
+      <div className="mb-6 flex justify-center">
+        <FunTitle title="Context Explosion" subtitle="Problem 3" />
+      </div>
 
       <div className="flex-1 flex gap-8">
         {/* Left - Activity Log */}
         <div className="flex-1 flex flex-col">
           {/* Status Bar */}
-          <div className={`mb-4 p-4 rounded-xl border-2 ${currentState.status.color.replace('bg-', 'border-')} bg-surface`}>
+          <div className={`mb-4 p-5 border-2 ${currentState.status.color.replace('bg-', 'border-')} bg-surface transform -rotate-[0.5deg] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]`}>
             <div className="flex items-center justify-between mb-2">
               <span className={`text-2xl font-bold ${currentState.status.textColor}`}>
                 {currentState.status.label}
@@ -182,7 +176,7 @@ export function ContextExplosionSlide() {
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <div className="flex-1 bg-surface/50 h-4 rounded-full overflow-hidden border border-white/20">
+              <div className="flex-1 bg-surface/50 h-5 overflow-hidden border-2 border-white/20">
                 <motion.div
                   className={`h-full ${currentState.status.color}`}
                   animate={{ width: `${currentState.usagePercent}%` }}
@@ -196,13 +190,13 @@ export function ContextExplosionSlide() {
           </div>
 
           {/* User Prompt */}
-          <div className="bg-cyan-500/10 border border-cyan-500/50 rounded-xl p-4 mb-4">
-            <div className="text-sm text-cyan-400 mb-1">User Prompt:</div>
+          <div className="transform rotate-[0.5deg] bg-cyan-500/10 border-2 border-cyan-500/50 p-4 mb-4 shadow-[4px_4px_0px_0px_rgba(6,182,212,0.3)]">
+            <div className="text-base text-cyan-400 mb-1 font-bold">User Prompt:</div>
             <div className="text-lg text-white font-mono">"{userInput}"</div>
           </div>
 
           {/* Activity Log */}
-          <div className="h-[550px] bg-surface rounded-xl border border-white/20 flex flex-col">
+          <div className="h-[550px] bg-surface border-2 border-white/20 flex flex-col transform -rotate-[0.3deg] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]">
             <div className="px-4 py-2 border-b border-white/10 flex justify-between items-center shrink-0">
               <span className="text-lg text-text-secondary font-bold">Agent Activity</span>
               {isPlaying && (
@@ -249,8 +243,8 @@ export function ContextExplosionSlide() {
         </div>
 
         {/* Right - Visual Stack */}
-        <div className="w-80 bg-surface rounded-xl border border-white/20 p-6 flex flex-col">
-          <div className="text-xl text-white font-bold text-center mb-4">Context Window</div>
+        <div className="w-80 bg-surface border-2 border-white/20 p-6 flex flex-col transform rotate-[0.5deg] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]">
+          <div className="text-2xl text-white font-bold text-center mb-4">Context Window</div>
 
           <div className="flex-1 relative border border-white/10 rounded-lg bg-black/20">
             {/* Limit line at top */}

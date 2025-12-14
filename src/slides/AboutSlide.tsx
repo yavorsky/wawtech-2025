@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { SlideLayout } from '@/components/SlideLayout'
+import { FunTitle } from '@/components/FunTitle'
 import { useSteppedReveal } from '@/hooks/useSteppedReveal'
 import { usePresentationContext } from '@/context/PresentationContext'
 import { SiWix, SiNetflix, SiBabel, SiGithub } from '@icons-pack/react-simple-icons'
@@ -173,39 +174,35 @@ export function AboutSlide() {
     <SlideLayout>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
-        >
-          <h1 className="text-6xl lg:text-7xl font-bold text-white">
-            Artem Yavorskyi <span className="text-cyan-400">(Art)</span>
-          </h1>
-        </motion.div>
+        <div className="mb-10 flex justify-center">
+          <FunTitle title="Artem Yavorskyi" subtitle="(Art)" />
+        </div>
 
         {/* Tab indicators */}
-        <div className="flex justify-center gap-8 mb-10">
+        <div className="flex justify-center gap-6 mb-10">
           {sections.map((section, index) => {
             const isActive = showContent && activeIndex === index
             const isRevealed = currentStep > index
+            const rotation = index === 0 ? -1 : index === 1 ? 1 : -0.5
             return (
               <motion.div
                 key={section.id}
-                initial={{ opacity: 0.4 }}
+                initial={{ opacity: 0.4, rotate: 0 }}
                 animate={{
                   opacity: isRevealed ? 1 : 0.4,
-                  scale: isActive ? 1.1 : 1,
+                  scale: isActive ? 1.05 : 1,
+                  rotate: isRevealed ? rotation : 0,
                 }}
-                className={`flex items-center gap-3 px-8 py-4 rounded-full border-2 transition-colors ${
+                className={`flex items-center gap-3 px-8 py-4 border-2 transition-colors ${
                   isActive
-                    ? 'border-cyan-500 bg-cyan-500/10'
+                    ? 'border-cyan-500 bg-cyan-500/10 shadow-[4px_4px_0px_0px_rgba(6,182,212,0.4)]'
                     : isRevealed
-                    ? 'border-purple-500/50 bg-purple-500/10'
+                    ? 'border-purple-500/50 bg-purple-500/10 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)]'
                     : 'border-white/10 bg-white/5'
                 }`}
               >
                 <span className="text-3xl">{section.icon}</span>
-                <span className={`text-2xl font-semibold ${isActive ? 'text-cyan-400' : 'text-white'}`}>
+                <span className={`text-2xl font-bold ${isActive ? 'text-cyan-400' : 'text-white'}`}>
                   {section.title}
                 </span>
               </motion.div>
@@ -226,16 +223,16 @@ export function AboutSlide() {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className="relative"
+                  className="relative transform -rotate-1"
                 >
-                  <div className="w-[420px] h-[420px] rounded-3xl overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+                  <div className="w-[420px] h-[420px] overflow-hidden border-4 border-purple-500/50 shadow-[8px_8px_0px_0px_rgba(168,85,247,0.4)]">
                     <img
                       src={`${import.meta.env.BASE_URL}${activeSection.image}`}
                       alt={activeSection.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute -bottom-5 -right-5 bg-cyan-500 text-background px-6 py-3 rounded-xl text-3xl font-bold">
+                  <div className="absolute -bottom-4 -right-4 bg-cyan-500 text-background px-6 py-3 text-3xl font-bold shadow-[4px_4px_0px_0px_rgba(6,182,212,0.5)]">
                     {activeSection.icon}
                   </div>
                 </motion.div>
@@ -266,7 +263,7 @@ export function AboutSlide() {
                 animate={{ opacity: 1 }}
                 className="text-center text-text-secondary text-3xl"
               >
-                Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to start
+                Press <kbd className="px-4 py-2 bg-surface text-cyan-400 font-mono mx-2 border-2 border-cyan-500/50 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.4)]">Space</kbd> to start
               </motion.div>
             )}
           </div>

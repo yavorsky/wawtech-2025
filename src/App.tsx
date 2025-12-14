@@ -38,6 +38,7 @@ import { FlashbackMemeSlide } from '@/slides/FlashbackMemeSlide'
 import { BabelInspirationSlide } from '@/slides/BabelInspirationSlide'
 import { ScopesArchitectureSlide } from '@/slides/ScopesArchitectureSlide'
 import { ScopesPatternSlide } from '@/slides/ScopesPatternSlide'
+import { StateMachineControlsSlide } from '@/slides/StateMachineControlsSlide'
 import { CodeAgentFlowSlide } from '@/slides/CodeAgentFlowSlide'
 import { TemplateSelectionScopeSlide } from '@/slides/TemplateSelectionScopeSlide'
 import { SpecCreationScopeSlide } from '@/slides/SpecCreationScopeSlide'
@@ -63,18 +64,18 @@ function App() {
       <DeterminismSlide />
       <LLMChaosSlide />
       <FlyingSlide />
-      <AfraidMemeSlide />
+      {/* <AfraidMemeSlide /> */}
       <AutopilotSlide />
       <AirbusJokeSlide />
       <AirbusFullSlide />
       <EngineFailureSlide />
       <DidntHappenSlide />
-      <EveryProblemRealSlide />
-      <PersonalStorySlide />
+      {/* <EveryProblemRealSlide /> */}
+      {/* <PersonalStorySlide /> */}
       <WriterAgentSlide />
       <WriterDemoSlide />
       <ArchitectureSlide />
-      <ToolsSlide />
+      {/* <ToolsSlide /> */}
       <SingleAgentSlide />
       <ItWorksGreatSlide />
       <UsersWantedCodeSlide />
@@ -82,7 +83,7 @@ function App() {
       <OutputInconsistencySlide />
       <BrokenResponsesSlide />
       <ContextExplosionSlide />
-      <ForgetSlide />
+      {/* <ForgetSlide /> */}
       <CantForgetSlide />
       <DelusionSlide />
       <LazyLoadingSlide />
@@ -90,18 +91,19 @@ function App() {
       <SummarizeHistorySlide />
       <RagRetrievalSlide />
       <SubAgentsSlide />
-      <WhyNothingWorkedSlide />
+      {/* <WhyNothingWorkedSlide /> */}
       <TheQuestionSlide />
       <FlashbackMemeSlide />
       <BabelInspirationSlide />
       <ScopesArchitectureSlide />
       <ScopesPatternSlide />
+      <StateMachineControlsSlide />
       <CodeAgentFlowSlide />
-      <TemplateSelectionScopeSlide />
-      <SpecCreationScopeSlide />
-      <PhaseImplementationScopeSlide />
-      <ReviewingScopeSlide />
-      <UserFeedbackScopeSlide />
+      {/* <TemplateSelectionScopeSlide /> */}
+      {/* <SpecCreationScopeSlide /> */}
+      {/* <PhaseImplementationScopeSlide /> */}
+      {/* <ReviewingScopeSlide /> */}
+      {/* <UserFeedbackScopeSlide /> */}
       <ScopesVsProblemsSlide />
       <ResultsSlide />
       <MaintainSlide />

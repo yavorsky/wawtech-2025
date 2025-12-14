@@ -155,12 +155,12 @@ export function UsersWantedCodeSlide() {
 
         {/* Prompt */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible(0) ? 1 : 0.2, y: isVisible(0) ? 0 : 20 }}
+          initial={{ opacity: 0, y: 20, rotate: 0 }}
+          animate={{ opacity: isVisible(0) ? 1 : 0.2, y: isVisible(0) ? 0 : 20, rotate: isVisible(0) ? -1 : 0 }}
           className="w-full max-w-5xl mb-8"
         >
-          <div className="bg-surface border border-cyan-500/50 rounded-2xl p-6">
-            <div className="text-lg text-cyan-400 mb-2">User prompt:</div>
+          <div className="bg-surface border-2 border-cyan-500/50 p-6 shadow-[4px_4px_0px_0px_rgba(6,182,212,0.4)]">
+            <div className="text-xl text-cyan-400 mb-2 font-bold">User prompt:</div>
             <p className="text-2xl text-white font-mono">
               "Generate a stunning web app with dashboard showing AAPL, NVDA, TSLA stocks live price and the chart. Use real live data from public APIs"
             </p>
@@ -169,24 +169,27 @@ export function UsersWantedCodeSlide() {
 
         {/* Result */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
           animate={{
             opacity: isVisible(1) ? 1 : 0,
             scale: isVisible(1) ? 1 : 0.9,
+            rotate: isVisible(1) ? 1 : 0,
           }}
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center"
         >
           <div className="text-2xl text-text-secondary mb-4">Result:</div>
-          <UglyStockApp />
+          <div className="shadow-[6px_6px_0px_0px_rgba(255,255,255,0.1)]">
+            <UglyStockApp />
+          </div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isVisible(1) ? 1 : 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-6 text-3xl text-red-400 font-bold"
+            className="mt-6 transform -rotate-1 bg-red-500/20 border-2 border-red-500 px-6 py-3 shadow-[4px_4px_0px_0px_rgba(239,68,68,0.4)]"
           >
-            Not exactly "stunning"...
+            <span className="text-3xl text-red-400 font-bold">Not exactly "stunning"...</span>
           </motion.div>
         </motion.div>
 

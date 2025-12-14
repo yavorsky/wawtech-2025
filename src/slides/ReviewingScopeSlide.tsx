@@ -174,17 +174,6 @@ export function ReviewingScopeSlide() {
             </div>
           </div>
         </motion.div>
-
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="text-text-secondary text-lg mt-3 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-3 py-1.5 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-          </motion.div>
-        )}
       </div>
     </SlideLayout>
   )

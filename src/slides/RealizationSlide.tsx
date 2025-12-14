@@ -29,11 +29,11 @@ export function RealizationSlide() {
 
         {/* Realization box */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: isVisible(0) ? 1 : 0, scale: isVisible(0) ? 1 : 0.95 }}
-          className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-600 rounded-3xl p-10 max-w-3xl"
+          initial={{ opacity: 0, scale: 0.95, rotate: 0 }}
+          animate={{ opacity: isVisible(0) ? 1 : 0, scale: isVisible(0) ? 1 : 0.95, rotate: isVisible(0) ? -0.5 : 0 }}
+          className="bg-slate-800/50 border-2 border-slate-600 p-10 max-w-3xl shadow-[8px_8px_0px_0px_rgba(100,116,139,0.3)]"
         >
-          <div className="text-xl text-slate-400 mb-6">Me as engineer realized:</div>
+          <div className="text-xl text-slate-400 mb-6">The realization:</div>
 
           <div className="space-y-4">
             <motion.div
@@ -79,13 +79,15 @@ export function RealizationSlide() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible(2) ? 1 : 0, y: isVisible(2) ? 0 : 20 }}
-            className="mt-8 pt-6 border-t border-slate-700"
+            className="mt-8 pt-6 border-t-2 border-slate-700"
           >
-            <div className="text-2xl text-slate-300 text-center">
-              Just wrapped around something
-            </div>
-            <div className="text-3xl text-purple-400 font-bold text-center mt-2">
-              that thinks back.
+            <div className="flex gap-4 justify-center items-center flex-wrap">
+              <div className="bg-slate-700/50 border-2 border-slate-600 px-6 py-3 shadow-[4px_4px_0px_0px_rgba(100,116,139,0.3)]">
+                <span className="text-2xl text-slate-300">Just wrapped around something</span>
+              </div>
+              <div className="bg-purple-500/20 border-2 border-purple-500/50 px-6 py-3 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)] transform rotate-1">
+                <span className="text-2xl text-purple-400 font-bold">that thinks back.</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>

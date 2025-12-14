@@ -39,8 +39,8 @@ export function WhyNothingWorkedSlide() {
               <span className="text-2xl text-white font-bold">Append-only conversation</span>
             </div>
 
-            <div className="space-y-4 text-lg text-slate-300">
-              <div className="flex items-start gap-3">
+            <div className="space-y-4 text-xl text-slate-300">
+              <div className="flex items-start gap-3 text-xl">
                 <span className="text-slate-500 mt-1">→</span>
                 <span>Every tool call adds to history <span className="text-red-400">forever</span></span>
               </div>
@@ -56,7 +56,7 @@ export function WhyNothingWorkedSlide() {
 
             {/* Visual */}
             <div className="mt-6 bg-surface rounded-xl p-4">
-              <div className="font-mono text-sm text-slate-500 space-y-1">
+              <div className="font-mono text-xl text-slate-500 space-y-1">
                 <div>[msg 1] user: "create app"</div>
                 <div>[msg 2] assistant: "creating..."</div>
                 <div>[msg 3] tool: read_file (2KB)</div>
@@ -78,7 +78,7 @@ export function WhyNothingWorkedSlide() {
               <span className="text-2xl text-white font-bold">Agent controls flow</span>
             </div>
 
-            <div className="space-y-4 text-lg text-slate-300">
+            <div className="space-y-4 text-lg text-slate-300 text-xl">
               <div className="flex items-start gap-3">
                 <span className="text-slate-500 mt-1">→</span>
                 <span>Agent decides what to do next</span>
@@ -95,16 +95,15 @@ export function WhyNothingWorkedSlide() {
 
             {/* Visual */}
             <div className="mt-6 bg-surface rounded-xl p-4">
-              <div className="flex flex-col items-center gap-2">
-                <div className="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 text-sm">Agent</div>
+              <div className="flex flex-col items-center gap-2 text-xl">
+                <div className="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 text-xl">Agent</div>
                 <div className="text-slate-500">↓ decides ↓</div>
                 <div className="flex gap-2 flex-wrap justify-center">
-                  <span className="px-2 py-1 bg-slate-700 rounded text-xs">plan?</span>
-                  <span className="px-2 py-1 bg-slate-700 rounded text-xs">code?</span>
-                  <span className="px-2 py-1 bg-slate-700 rounded text-xs">test?</span>
-                  <span className="px-2 py-1 bg-slate-700 rounded text-xs">fix?</span>
+                  <span className="px-2 py-1 bg-slate-700 rounded text-xl">plan?</span>
+                  <span className="px-2 py-1 bg-slate-700 rounded text-xl">code?</span>
+                  <span className="px-2 py-1 bg-slate-700 rounded text-xl">test?</span>
+                  <span className="px-2 py-1 bg-slate-700 rounded text-xl">fix?</span>
                 </div>
-                <div className="text-red-400 text-sm mt-2">🎲 random walk through tasks</div>
               </div>
             </div>
           </motion.div>
@@ -120,7 +119,7 @@ export function WhyNothingWorkedSlide() {
               <span className="text-2xl text-white font-bold">Global context</span>
             </div>
 
-            <div className="space-y-4 text-lg text-slate-300">
+            <div className="space-y-4 text-xl text-slate-300">
               <div className="flex items-start gap-3">
                 <span className="text-slate-500 mt-1">→</span>
                 <span>LLM needs to track <span className="text-yellow-400">everything</span></span>
@@ -137,16 +136,16 @@ export function WhyNothingWorkedSlide() {
 
             {/* Visual */}
             <div className="mt-6 bg-surface rounded-xl p-4">
-              <div className="text-sm text-slate-500 mb-2">One context holds:</div>
+              <div className="text-xl text-slate-500 mb-2">One context holds:</div>
               <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-purple-500/20 rounded text-purple-400 text-xs">planning</span>
-                <span className="px-2 py-1 bg-cyan-500/20 rounded text-cyan-400 text-xs">coding</span>
-                <span className="px-2 py-1 bg-green-500/20 rounded text-green-400 text-xs">testing</span>
-                <span className="px-2 py-1 bg-yellow-500/20 rounded text-yellow-400 text-xs">debugging</span>
-                <span className="px-2 py-1 bg-pink-500/20 rounded text-pink-400 text-xs">file reads</span>
-                <span className="px-2 py-1 bg-orange-500/20 rounded text-orange-400 text-xs">tool outputs</span>
+                <span className="px-2 py-1 bg-purple-500/20 rounded text-purple-400 text-xl">planning</span>
+                <span className="px-2 py-1 bg-cyan-500/20 rounded text-cyan-400 text-xl">coding</span>
+                <span className="px-2 py-1 bg-green-500/20 rounded text-green-400 text-xl">testing</span>
+                <span className="px-2 py-1 bg-yellow-500/20 rounded text-yellow-400 text-xl">debugging</span>
+                <span className="px-2 py-1 bg-pink-500/20 rounded text-pink-400 text-xl">file reads</span>
+                <span className="px-2 py-1 bg-orange-500/20 rounded text-orange-400 text-xl">tool outputs</span>
               </div>
-              <div className="text-red-400 text-sm mt-3 text-center">
+              <div className="text-red-400 mt-3 text-center text-lg">
                 All competing for attention
               </div>
             </div>
