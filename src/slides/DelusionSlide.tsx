@@ -13,7 +13,7 @@ export function DelusionSlide() {
       </motion.h1>
 
       <motion.img
-        src="/delusion.png"
+        src={`${import.meta.env.BASE_URL}delusion.png`}
         alt="Lost in the Middle"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

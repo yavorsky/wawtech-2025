@@ -12,7 +12,7 @@ export function AfraidMemeSlide() {
           className="rounded-3xl overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20"
         >
           <img
-            src="/afraid-of-flying.gif"
+            src={`${import.meta.env.BASE_URL}afraid-of-flying.gif`}
             alt="Leslie Nielsen - Afraid of Flying"
             className="h-[70vh] w-auto"
           />

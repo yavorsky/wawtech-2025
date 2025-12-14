@@ -4,7 +4,7 @@ export function AirbusFullSlide() {
   return (
     <div className="w-full h-full flex items-center justify-center bg-background">
       <motion.img
-        src="/airbus-full.png"
+        src={`${import.meta.env.BASE_URL}airbus-full.png`}
         alt="Airbus"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

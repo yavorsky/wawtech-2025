@@ -41,7 +41,7 @@ export function AutopilotSlide() {
           className="rounded-3xl overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20"
         >
           <img
-            src="/autopilot.gif"
+            src={`${import.meta.env.BASE_URL}autopilot.gif`}
             alt="Autopilot"
             className="h-[60vh] w-auto"
           />

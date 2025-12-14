@@ -9,7 +9,7 @@ const sections = [
     id: 'day',
     icon: '☀️',
     title: 'DURING THE DAY',
-    image: '/day.jpeg',
+    image: 'day.jpeg',
     content: [
       {
         period: '2016-2022',
@@ -47,7 +47,7 @@ const sections = [
     id: 'night',
     icon: '🌙',
     title: 'DURING THE NIGHT',
-    image: '/night.jpeg',
+    image: 'night.jpeg',
     content: [
       {
         company: 'BABEL.JS',
@@ -75,7 +75,7 @@ const sections = [
     id: 'life',
     icon: '❤️',
     title: 'DURING THE LIFE',
-    image: '/life.png',
+    image: 'life.png',
     hobbies: [
       'Play tennis',
       'Cycling',
@@ -230,7 +230,7 @@ export function AboutSlide() {
                 >
                   <div className="w-[420px] h-[420px] rounded-3xl overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
                     <img
-                      src={activeSection.image}
+                      src={`${import.meta.env.BASE_URL}${activeSection.image}`}
                       alt={activeSection.title}
                       className="w-full h-full object-cover"
                     />

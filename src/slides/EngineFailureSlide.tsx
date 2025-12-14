@@ -165,7 +165,7 @@ export function EngineFailureSlide() {
     <div className="w-full h-full flex items-center justify-center bg-background overflow-hidden relative">
       {/* Shaking background image */}
       <motion.img
-        src="/airbus-engine-failure.png"
+        src={`${import.meta.env.BASE_URL}airbus-engine-failure.png`}
         alt="Engine Failure"
         initial={{ opacity: 0 }}
         animate={{

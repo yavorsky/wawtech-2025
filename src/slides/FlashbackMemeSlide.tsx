@@ -13,7 +13,7 @@ export function FlashbackMemeSlide() {
     <div className="w-full h-full flex items-center justify-center bg-background relative">
       {/* Background - Vietnam dog meme in B&W */}
       <motion.img
-        src="/image-meme-1.jpg"
+        src={`${import.meta.env.BASE_URL}image-meme-1.jpg`}
         alt="Flashback"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -23,7 +23,7 @@ export function FlashbackMemeSlide() {
 
       {/* Overlay - Personal image */}
       <motion.img
-        src="/image-meme-2.jpg"
+        src={`${import.meta.env.BASE_URL}image-meme-2.jpg`}
         alt="Me remembering"
         initial={{ opacity: 0 }}
         animate={{ opacity: isVisible(0) ? 0.7 : 0 }}
@@ -33,7 +33,7 @@ export function FlashbackMemeSlide() {
 
       {/* Babel image - top of slide */}
       <motion.img
-        src="/babel.png"
+        src={`${import.meta.env.BASE_URL}babel.png`}
         alt="Babel"
         initial={{ opacity: 0 }}
         animate={{ opacity: isVisible(1) ? 1 : 0 }}
