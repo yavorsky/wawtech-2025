@@ -233,16 +233,6 @@ export function EngineFailureSlide() {
         </motion.div>
       )}
 
-      {/* Step indicator */}
-      {!isComplete && (
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white text-xl bg-black/50 px-6 py-3 rounded-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          Press <kbd className="px-3 py-1 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-        </motion.div>
-      )}
     </div>
   )
 }

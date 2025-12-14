@@ -137,13 +137,13 @@ export function ArchitectureSlide() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: isVisible(3) ? 1 : 0.1, x: isVisible(3) ? 0 : -50 }}
-              className="absolute left-4 top-44"
+              className="absolute left-4 top-20"
             >
               <div className="bg-green-500/10 border-2 border-green-500/50 rounded-2xl p-4 w-56">
                 <div className="text-lg font-bold text-green-400 mb-3 flex items-center gap-2">
                   <span>🔧</span> Sandbox Tools
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-0">
                   <div className="flex items-center gap-2 text-sm bg-surface/50 rounded-lg px-3 py-2">
                     <span>📝</span>
                     <span className="text-text-secondary">file_edit</span>
@@ -178,7 +178,7 @@ export function ArchitectureSlide() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: isVisible(3) ? 1 : 0.1, x: isVisible(3) ? 0 : 50 }}
-              className="absolute right-4 top-44"
+              className="absolute right-4 top-20"
             >
               <div className="bg-blue-500/10 border-2 border-blue-500/50 rounded-2xl p-4 w-56">
                 <div className="text-lg font-bold text-blue-400 mb-3 flex items-center gap-2">
@@ -296,7 +296,7 @@ export function ArchitectureSlide() {
             <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: -1 }}>
               {/* Left arrow to tools */}
               <motion.path
-                d="M 38 45 L 22 45"
+                d="M 38 35 L 22 35"
                 stroke="#22c55e"
                 strokeWidth="0.3"
                 fill="none"
@@ -306,7 +306,7 @@ export function ArchitectureSlide() {
               />
               {/* Right arrow to MCP */}
               <motion.path
-                d="M 62 45 L 78 45"
+                d="M 62 35 L 78 35"
                 stroke="#3b82f6"
                 strokeWidth="0.3"
                 fill="none"
@@ -316,7 +316,7 @@ export function ArchitectureSlide() {
               />
               {/* Bottom left to context */}
               <motion.path
-                d="M 42 62 Q 35 70 28 75"
+                d="M 42 58 Q 35 68 28 78"
                 stroke="#eab308"
                 strokeWidth="0.3"
                 fill="none"
@@ -326,7 +326,7 @@ export function ArchitectureSlide() {
               />
               {/* Bottom right to response */}
               <motion.path
-                d="M 58 62 Q 65 70 72 75"
+                d="M 58 58 Q 65 68 72 78"
                 stroke="#06b6d4"
                 strokeWidth="0.3"
                 fill="none"
@@ -338,16 +338,6 @@ export function ArchitectureSlide() {
           </div>
         </div>
 
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="text-text-secondary text-xl mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-          </motion.div>
-        )}
       </div>
     </SlideLayout>
   )

@@ -40,17 +40,6 @@ export function FlashbackMemeSlide() {
         transition={{ duration: 1 }}
         className="absolute top-8 max-w-[50%] max-h-[30%] object-contain"
       />
-
-      {/* Step indicator */}
-      {!isComplete && (
-        <motion.div
-          className="absolute bottom-8 text-text-secondary text-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          Press <kbd className="px-3 py-1.5 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-        </motion.div>
-      )}
     </div>
   )
 }

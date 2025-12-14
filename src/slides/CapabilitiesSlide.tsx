@@ -215,17 +215,6 @@ export function CapabilitiesSlide() {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="text-text-secondary text-base mt-2 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-2 py-1 bg-surface rounded text-cyan-400 font-mono mx-1">Space</kbd> to continue
-          </motion.div>
-        )}
       </div>
     </SlideLayout>
   )

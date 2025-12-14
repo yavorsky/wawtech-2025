@@ -26,7 +26,7 @@ function ToolCard({ tool, color }: { tool: Tool; color: string }) {
     >
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className={`flex items-center gap-3 bg-surface/50 rounded-xl px-4 py-3 cursor-pointer border border-transparent hover:border-${color}-500/50 transition-colors`}
+        className={`flex items-center gap-3 bg-surface/50 rounded-xl px-2 py-2 cursor-pointer border border-transparent hover:border-${color}-500/50 transition-colors`}
       >
         <span className="text-2xl">{tool.icon}</span>
         <div className="min-w-0">
@@ -156,7 +156,7 @@ export function ToolsSlide() {
                 <span className="text-3xl">🔧</span>
                 <span className="text-2xl font-bold text-green-400">Sandbox Tools</span>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-1">
                 {sandboxTools.map((tool, i) => (
                   <motion.div
                     key={tool.name}

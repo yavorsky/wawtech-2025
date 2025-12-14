@@ -272,18 +272,6 @@ export function AboutSlide() {
           </div>
         </div>
 
-        {/* Step indicator */}
-        <motion.div
-          className="text-center text-text-secondary text-xl mt-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          {showContent && !isComplete && (
-            <span>
-              Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-            </span>
-          )}
-        </motion.div>
       </div>
     </SlideLayout>
   )

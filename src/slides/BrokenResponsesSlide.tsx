@@ -127,16 +127,6 @@ export function BrokenResponsesSlide() {
           </div>
         </motion.div>
 
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="text-text-secondary text-xl mt-4 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-          </motion.div>
-        )}
       </div>
     </SlideLayout>
   )
