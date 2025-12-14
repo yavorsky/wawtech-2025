@@ -77,17 +77,17 @@ function ActCard({ act, isVisible, isActive }: { act: typeof acts[0]; isVisible:
         borderColor: isActive ? 'rgba(6, 182, 212, 0.6)' : isVisible ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.1)',
       }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="bg-surface/50 border-2 rounded-xl p-6"
+      className="bg-surface/50 border-2 rounded-xl p-4"
     >
-      <div className="flex items-center gap-4 mb-4">
-        <span className="text-cyan-500 font-mono text-xl font-bold">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-cyan-500 font-mono text-lg font-bold">
           ACT {act.number}
         </span>
-        <h3 className="text-2xl font-semibold text-white">{act.title}</h3>
+        <h3 className="text-xl font-semibold text-white">{act.title}</h3>
       </div>
-      <ul className="space-y-3">
+      <ul className="space-y-2">
         {act.items.map((item, i) => (
-          <li key={i} className="flex items-center gap-3 text-text-secondary text-xl">
+          <li key={i} className="flex items-center gap-2 text-text-secondary text-lg">
             <span className="text-purple-400 text-2xl">•</span>
             {typeof item === 'string' ? (
               <span>{item}</span>
@@ -122,20 +122,20 @@ export function JourneySlide() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col h-full items-center justify-center"
+        className="flex flex-col h-full items-center"
       >
         {/* Header */}
-        <motion.div variants={itemVariants} className="mb-10 text-center">
-          <p className="text-cyan-500 font-mono text-xl mb-3 tracking-wider">
+        <motion.div variants={itemVariants} className="mb-6 text-center">
+          <p className="text-cyan-500 font-mono text-lg mb-2 tracking-wider">
             WHAT WE'LL COVER
           </p>
-          <h1 className="text-6xl lg:text-7xl font-bold text-white">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white">
             Today's Journey
           </h1>
         </motion.div>
 
         {/* Acts Grid */}
-        <div className="grid grid-cols-2 gap-6 max-w-6xl w-full">
+        <div className="grid grid-cols-2 gap-4 max-w-6xl w-full">
           {acts.map((act, index) => (
             <ActCard
               key={act.number}
@@ -151,24 +151,22 @@ export function JourneySlide() {
           initial={{ opacity: 0 }}
           animate={{ opacity: isComplete ? 1 : 0.5 }}
           transition={{ duration: 0.5 }}
-          className="mt-10 text-text-secondary text-center italic text-2xl"
+          className="mt-6 text-text-secondary text-center italic text-xl"
         >
           A personal story about learning to build systems that think back.
         </motion.p>
 
         {/* Step indicator */}
-        <motion.div
-          className="absolute bottom-24 text-text-secondary text-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          {!isComplete && (
-            <span>
-              Press <kbd className="px-3 py-1 bg-surface rounded text-cyan-400 font-mono mx-1">Space</kbd> to reveal next
-            </span>
-          )}
-        </motion.div>
+        {!isComplete && (
+          <motion.div
+            className="mt-4 text-text-secondary text-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            Press <kbd className="px-3 py-1 bg-surface rounded text-cyan-400 font-mono mx-1">Space</kbd> to reveal next
+          </motion.div>
+        )}
       </motion.div>
     </SlideLayout>
   )

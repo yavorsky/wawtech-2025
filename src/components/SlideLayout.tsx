@@ -47,12 +47,12 @@ export function SlideLayout({ children, className }: SlideLayoutProps) {
   return (
     <div
       className={cn(
-        'w-full h-full flex flex-col bg-background relative overflow-hidden',
+        'w-full h-full flex flex-col bg-background relative overflow-auto',
         className
       )}
     >
       <BackgroundArcs />
-      <div className="relative z-10 flex-1 flex flex-col p-16 lg:p-20 xl:p-24">
+      <div className="relative z-10 flex-1 flex flex-col p-8 lg:p-12 xl:p-16">
         {children}
       </div>
     </div>

@@ -82,17 +82,6 @@ export function AirbusJokeSlide() {
             </motion.div>
           ))}
         </div>
-
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="absolute bottom-24 text-text-secondary text-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-          </motion.div>
-        )}
       </div>
     </SlideLayout>
   )
