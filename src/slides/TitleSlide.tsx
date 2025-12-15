@@ -121,7 +121,7 @@ export function TitleSlide() {
               <circle cx="20" cy="20" r="16" stroke="currentColor" strokeWidth="2" fill="none" />
             </svg>
             <span className="text-background font-bold text-4xl tracking-tight">
-              TECH
+              WAWTECH
             </span>
             <span className="text-background text-xl align-super">by</span>
             <span className="text-background font-bold text-4xl tracking-tight">
