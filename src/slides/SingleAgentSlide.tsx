@@ -1,83 +1,77 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { SlideLayout } from '@/components/SlideLayout'
+import { FunTitle } from '@/components/FunTitle'
 import { useSteppedReveal } from '@/hooks/useSteppedReveal'
 import { usePresentationContext } from '@/context/PresentationContext'
 
 export function SingleAgentSlide() {
   const { nextSlide } = usePresentationContext()
-  const { isVisible, isComplete } = useSteppedReveal({
+  const { isVisible } = useSteppedReveal({
     totalSteps: 5,
     onComplete: nextSlide,
   })
+  const [showMeme, setShowMeme] = useState(false)
 
   const rejectedAgents = [
-    { name: 'Planning Agent', icon: '📋' },
-    { name: 'Coding Agent', icon: '💻' },
-    { name: 'Review Agent', icon: '🔍' },
-    { name: 'Deploy Agent', icon: '🚀' },
+    { name: 'Planning Agent' },
+    { name: 'Coding Agent' },
+    { name: 'Review Agent' },
+    { name: 'Deploy Agent' },
   ]
 
   const problems = [
-    { text: 'Coordination overhead', icon: '🔄' },
-    { text: 'Handoff complexity', icon: '🤝' },
-    { text: 'User confusion', icon: '😵' },
+    { problem: 'Who owns the context?', detail: 'Each agent has partial view', meme: null },
+    { problem: 'Who handles errors?', detail: 'Blame shifting between agents', meme: null },
+    { problem: 'Who talks to user?', detail: 'Confusing multi-voice UX', meme: 'split-james-mcavoy.webp' },
   ]
 
   return (
     <SlideLayout>
-      <div className="flex flex-col h-full items-center">
+      <div className="flex flex-col h-full">
         {/* Header */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl lg:text-6xl font-bold text-white text-center mb-4"
-        >
-          Why <span className="text-cyan-400">Single Agent</span>?
-        </motion.h1>
+        <div className="mb-6 flex justify-center">
+          <FunTitle
+            title="Why Single Agent?"
+            subtitle="Decision rationale"
+            variant="neutral"
+          />
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-2xl text-text-secondary mb-12"
-        >
-          Decision rationale
-        </motion.p>
-
-        <div className="flex-1 w-full max-w-6xl flex gap-12">
+        <div className="flex-1 w-full max-w-6xl mx-auto flex gap-8">
           {/* Left side - What we could have built */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: isVisible(0) ? 1 : 0.2, x: isVisible(0) ? 0 : -30 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: isVisible(0) ? 1 : 0.3, x: isVisible(0) ? 0 : -20 }}
             className="flex-1"
           >
-            <p className="text-xl text-text-secondary mb-6">
+            <p className="text-lg text-slate-400 mb-4">
               We could have built specialist agents:
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {rejectedAgents.map((agent, index) => (
                 <motion.div
                   key={agent.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{
                     opacity: isVisible(0) ? 1 : 0,
-                    x: isVisible(0) ? 0 : -20
+                    x: isVisible(0) ? 0 : -10
                   }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                   className="relative"
                 >
-                  <div className="flex items-center gap-4 bg-surface/50 border border-gray-600 rounded-xl px-6 py-4">
-                    <span className="text-3xl">{agent.icon}</span>
-                    <span className="text-2xl text-gray-400">{agent.name}</span>
+                  <div className="flex items-center gap-3 bg-slate-800/50 border border-slate-600 px-5 py-3">
+                    <div className="w-2 h-2 bg-slate-500" />
+                    <span className="text-xl text-slate-400">{agent.name}</span>
                   </div>
                   {/* Strike through */}
                   <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isVisible(1) ? 1 : 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
                     style={{ transformOrigin: 'left' }}
-                    className="absolute top-1/2 left-0 right-0 h-1 bg-red-500/70 rounded"
+                    className="absolute top-1/2 left-0 right-0 h-0.5 bg-red-500/70"
                   />
                 </motion.div>
               ))}
@@ -85,15 +79,14 @@ export function SingleAgentSlide() {
 
             {/* Big NO */}
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{
                 opacity: isVisible(1) ? 1 : 0,
-                scale: isVisible(1) ? 1 : 0
+                scale: isVisible(1) ? 1 : 0.9
               }}
-              transition={{ type: 'spring', damping: 10 }}
-              className="mt-8 text-center"
+              className="mt-6 text-center"
             >
-              <span className="text-6xl font-black text-red-500">NO.</span>
+              <span className="text-5xl font-black text-red-500">NO.</span>
             </motion.div>
           </motion.div>
 
@@ -101,53 +94,56 @@ export function SingleAgentSlide() {
           <motion.div
             initial={{ opacity: 0, scaleY: 0 }}
             animate={{
-              opacity: isVisible(2) ? 1 : 0,
+              opacity: isVisible(2) ? 0.5 : 0,
               scaleY: isVisible(2) ? 1 : 0
             }}
             style={{ transformOrigin: 'top' }}
-            className="w-1 bg-gradient-to-b from-red-500 via-purple-500 to-cyan-500 rounded-full"
+            className="w-0.5 bg-slate-600"
           />
 
           {/* Right side - Why not */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: isVisible(2) ? 1 : 0.2, x: isVisible(2) ? 0 : 30 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: isVisible(2) ? 1 : 0.3, x: isVisible(2) ? 0 : 20 }}
             className="flex-1"
           >
-            <p className="text-xl text-text-secondary mb-6">
-              Why?
-            </p>
+            <p className="text-lg text-slate-400 mb-4">Why?</p>
 
-            <div className="space-y-4 mb-8">
-              {problems.map((problem, index) => (
+            <div className="space-y-3 mb-6">
+              {problems.map((item, index) => (
                 <motion.div
-                  key={problem.text}
-                  initial={{ opacity: 0, x: 20 }}
+                  key={item.problem}
+                  initial={{ opacity: 0, x: 10 }}
                   animate={{
                     opacity: isVisible(2) ? 1 : 0,
-                    x: isVisible(2) ? 0 : 20
+                    x: isVisible(2) ? 0 : 10
                   }}
-                  transition={{ delay: index * 0.15 }}
-                  className="flex items-center gap-4 bg-red-500/10 border border-red-500/30 rounded-xl px-6 py-4"
+                  transition={{ delay: index * 0.08 }}
+                  className={`bg-red-500/10 border-2 border-red-500/40 px-5 py-3 ${item.meme ? 'cursor-pointer hover:border-red-500/70 transition-colors' : ''}`}
+                  onMouseEnter={() => item.meme && setShowMeme(true)}
+                  onMouseLeave={() => item.meme && setShowMeme(false)}
                 >
-                  <span className="text-3xl">{problem.icon}</span>
-                  <span className="text-2xl text-red-400">{problem.text}</span>
+                  <div className="text-lg text-red-400 font-bold">{item.problem}</div>
+                  <div className="text-base text-slate-400">
+                    {item.detail}
+                    {item.meme && <span className="text-slate-500 ml-2">(hover)</span>}
+                  </div>
                 </motion.div>
               ))}
             </div>
 
             {/* What we wanted */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{
                 opacity: isVisible(3) ? 1 : 0,
-                y: isVisible(3) ? 0 : 20
+                y: isVisible(3) ? 0 : 10
               }}
-              className="mt-8"
+              className="mt-6"
             >
-              <p className="text-xl text-text-secondary mb-4">Wanted:</p>
-              <div className="bg-cyan-500/10 border-2 border-cyan-500 rounded-2xl px-6 py-4">
-                <span className="text-2xl text-cyan-400 font-semibold">
+              <p className="text-lg text-slate-400 mb-3">Wanted:</p>
+              <div className="bg-cyan-500/10 border-2 border-cyan-500/40 px-5 py-4 shadow-[4px_4px_0px_0px_rgba(6,182,212,0.3)] transform -rotate-1">
+                <span className="text-xl text-cyan-400 font-bold">
                   ONE agent that handles everything.
                 </span>
               </div>
@@ -157,37 +153,53 @@ export function SingleAgentSlide() {
 
         {/* Bottom summary */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: isVisible(4) ? 1 : 0,
-            y: isVisible(4) ? 0 : 30
+            y: isVisible(4) ? 0 : 20
           }}
-          className="mt-8 flex items-center justify-center gap-8"
+          className="mt-6 flex items-center justify-center gap-5"
         >
-          <div className="flex items-center gap-3 bg-surface border border-purple-500/50 rounded-xl px-6 py-3">
-            <span className="text-3xl">💬</span>
-            <span className="text-2xl text-white font-semibold">One conversation.</span>
+          <div className="bg-purple-500/10 border-2 border-purple-500/40 px-5 py-3 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)] transform -rotate-1">
+            <span className="text-xl text-white font-bold">One conversation.</span>
           </div>
-          <div className="flex items-center gap-3 bg-surface border border-purple-500/50 rounded-xl px-6 py-3">
-            <span className="text-3xl">🧠</span>
-            <span className="text-2xl text-white font-semibold">One context.</span>
+          <div className="bg-purple-500/10 border-2 border-purple-500/40 px-5 py-3 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)]">
+            <span className="text-xl text-white font-bold">One context.</span>
           </div>
-          <div className="flex items-center gap-3 bg-surface border border-purple-500/50 rounded-xl px-6 py-3">
-            <span className="text-3xl">🤖</span>
-            <span className="text-2xl text-white font-semibold">One agent.</span>
+          <div className="bg-purple-500/10 border-2 border-purple-500/40 px-5 py-3 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)] transform rotate-1">
+            <span className="text-xl text-white font-bold">One agent.</span>
           </div>
         </motion.div>
 
-        {/* Step indicator */}
-        {!isComplete && (
-          <motion.div
-            className="text-text-secondary text-xl mt-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Press <kbd className="px-4 py-2 bg-surface rounded text-cyan-400 font-mono mx-2">Space</kbd> to continue
-          </motion.div>
-        )}
+        {/* Meme Modal */}
+        <AnimatePresence>
+          {showMeme && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+            >
+              <div className="absolute inset-0 bg-black/70" />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative z-10"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}split-james-mcavoy.webp`}
+                  alt="Split - Multiple personalities"
+                  className="max-w-[500px] max-h-[400px] object-contain border-2 border-white/20 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)]"
+                />
+                <div className="mt-3 text-center text-slate-400 text-lg">
+                  "Which personality am I talking to today?"
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </SlideLayout>
   )

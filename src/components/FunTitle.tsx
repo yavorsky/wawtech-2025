@@ -4,9 +4,39 @@ interface FunTitleProps {
   title: string
   subtitle?: string
   className?: string
+  variant?: 'fun' | 'neutral'
 }
 
-export function FunTitle({ title, subtitle, className = '' }: FunTitleProps) {
+export function FunTitle({ title, subtitle, className = '', variant = 'fun' }: FunTitleProps) {
+  if (variant === 'neutral') {
+    return (
+      <div className={`flex flex-col items-start ${className}`}>
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight bg-white text-slate-900 px-5 py-2">
+            {title}
+          </h1>
+        </motion.div>
+
+        {subtitle && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="mt-1"
+          >
+            <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-400 px-5">
+              {subtitle}
+            </h2>
+          </motion.div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className={`flex flex-col items-start ${className}`}>
       {/* Main Title */}

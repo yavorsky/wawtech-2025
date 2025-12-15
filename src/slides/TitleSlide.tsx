@@ -103,30 +103,16 @@ export function TitleSlide() {
         {/* Logo/Brand */}
         <motion.div
           className="mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          initial={{ opacity: 0, x: -30, rotate: -3 }}
+          animate={{ opacity: 1, x: 0, rotate: -1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <div className="bg-cyan-500 px-8 py-4 flex items-center gap-3">
-            <svg
-              width="56"
-              height="56"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="text-background"
-            >
-              <circle cx="20" cy="20" r="4" fill="currentColor" />
-              <circle cx="20" cy="20" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
-              <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
-              <circle cx="20" cy="20" r="16" stroke="currentColor" strokeWidth="2" fill="none" />
-            </svg>
-            <span className="text-background font-bold text-4xl tracking-tight">
-              WAWTECH
-            </span>
-            <span className="text-background text-xl align-super">by</span>
-            <span className="text-background font-bold text-4xl tracking-tight">
-              DOU
-            </span>
+          <div className="bg-[#6EE7B7] px-6 py-4 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+            <img
+              src={`${import.meta.env.BASE_URL}image23.png`}
+              alt="WAWTECH by DOU"
+              className="h-12 w-auto"
+            />
           </div>
         </motion.div>
 

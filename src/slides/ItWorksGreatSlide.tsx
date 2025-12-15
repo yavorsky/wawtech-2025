@@ -1,11 +1,30 @@
 import { motion } from 'framer-motion'
 import { SlideLayout } from '@/components/SlideLayout'
+import { FunTitle } from '@/components/FunTitle'
 import { useSteppedReveal } from '@/hooks/useSteppedReveal'
 import { usePresentationContext } from '@/context/PresentationContext'
 
+const colorStyles = {
+  cyan: {
+    bg: 'bg-cyan-500/10',
+    border: 'border-cyan-500/40',
+    shadow: 'shadow-[4px_4px_0px_0px_rgba(6,182,212,0.3)]',
+  },
+  purple: {
+    bg: 'bg-purple-500/10',
+    border: 'border-purple-500/40',
+    shadow: 'shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)]',
+  },
+  pink: {
+    bg: 'bg-pink-500/10',
+    border: 'border-pink-500/40',
+    shadow: 'shadow-[4px_4px_0px_0px_rgba(236,72,153,0.3)]',
+  },
+}
+
 export function ItWorksGreatSlide() {
   const { nextSlide } = usePresentationContext()
-  const { isVisible, isComplete } = useSteppedReveal({
+  const { isVisible } = useSteppedReveal({
     totalSteps: 4,
     onComplete: nextSlide,
   })
@@ -13,10 +32,11 @@ export function ItWorksGreatSlide() {
   const examples = [
     {
       task: '"Generate a sales presentation"',
-      color: 'cyan',
+      color: 'cyan' as const,
+      rotate: '-rotate-1',
       metrics: {
         iterations: '5-10',
-        context: '~10K tokens',
+        context: '~10K',
       },
       tools: ['create_file', 'execute_command'],
       capabilities: ['Presentation'],
@@ -24,21 +44,23 @@ export function ItWorksGreatSlide() {
     },
     {
       task: '"Book plane tickets to Berlin"',
-      color: 'purple',
+      color: 'purple' as const,
+      rotate: 'rotate-1',
       metrics: {
         iterations: '10-15',
-        context: '~18K tokens',
+        context: '~18K',
       },
       tools: ['web_search', 'web_scrape', 'browser_takeover'],
       capabilities: [],
-      mcp: ['Discovery', 'Flight Booking Service'],
+      mcp: ['Discovery', 'Flight Booking'],
     },
     {
-      task: '"Read this PDF and send summary to Slack"',
-      color: 'pink',
+      task: '"Read PDF and send summary to Slack"',
+      color: 'pink' as const,
+      rotate: '-rotate-1',
       metrics: {
         iterations: '4-6',
-        context: '~8K tokens',
+        context: '~8K',
       },
       tools: ['query_document'],
       capabilities: ['PDF'],
@@ -48,104 +70,95 @@ export function ItWorksGreatSlide() {
 
   return (
     <SlideLayout>
-      <div className="flex flex-col h-full items-center">
+      <div className="flex flex-col h-full">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
-        >
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">
-            It Works <span className="text-green-400">Great</span>...
-          </h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-3xl text-text-secondary"
-          >
-            For predictable tasks
-          </motion.p>
-        </motion.div>
+        <div className="mb-6 flex justify-center">
+          <FunTitle
+            title="It Works Great..."
+            subtitle="For predictable tasks"
+            variant="neutral"
+          />
+        </div>
 
         {/* Examples */}
-        <div className="flex-1 w-full max-w-7xl space-y-6">
-          {examples.map((example, index) => (
-            <motion.div
-              key={example.task}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{
-                opacity: isVisible(index) ? 1 : 0.15,
-                x: isVisible(index) ? 0 : -50,
-              }}
-              transition={{ duration: 0.5 }}
-              className={`bg-${example.color}-500/10 border border-${example.color}-500/50 rounded-2xl p-6`}
-              style={{
-                backgroundColor: `rgba(${example.color === 'cyan' ? '34, 211, 238' : example.color === 'purple' ? '139, 92, 246' : '236, 72, 153'}, 0.1)`,
-                borderColor: `rgba(${example.color === 'cyan' ? '34, 211, 238' : example.color === 'purple' ? '139, 92, 246' : '236, 72, 153'}, 0.5)`,
-              }}
-            >
-              <div className="flex items-start gap-8">
-                {/* Task */}
-                <div className="flex-1">
-                  <div className="text-3xl font-bold text-white mb-4">
-                    {example.task}
+        <div className="flex-1 w-full max-w-6xl mx-auto space-y-4">
+          {examples.map((example, index) => {
+            const styles = colorStyles[example.color]
+            return (
+              <motion.div
+                key={example.task}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{
+                  opacity: isVisible(index) ? 1 : 0.3,
+                  x: isVisible(index) ? 0 : -20,
+                }}
+                transition={{ duration: 0.4 }}
+                className={`${styles.bg} border-2 ${styles.border} ${styles.shadow} p-5 transform ${example.rotate}`}
+              >
+                <div className="flex items-center gap-6">
+                  {/* Task */}
+                  <div className="flex-1">
+                    <div className="text-2xl font-bold text-white mb-3">
+                      {example.task}
+                    </div>
+
+                    {/* Tools, Capabilities, MCP */}
+                    <div className="flex flex-wrap gap-2">
+                      {example.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-3 py-1 bg-green-500/20 border border-green-500/40 text-base text-green-400 font-mono"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                      {example.capabilities.map((cap) => (
+                        <span
+                          key={cap}
+                          className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/40 text-base text-yellow-400"
+                        >
+                          {cap}
+                        </span>
+                      ))}
+                      {example.mcp.map((connector) => (
+                        <span
+                          key={connector}
+                          className="px-3 py-1 bg-purple-500/20 border border-purple-500/40 text-base text-purple-400"
+                        >
+                          MCP: {connector}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Tools, Capabilities, MCP */}
-                  <div className="flex flex-wrap gap-3">
-                    {example.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="px-4 py-2 bg-green-500/20 border border-green-500/50 rounded-lg text-lg text-green-400"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                    {example.capabilities.map((cap) => (
-                      <span
-                        key={cap}
-                        className="px-4 py-2 bg-yellow-500/20 border border-yellow-500/50 rounded-lg text-lg text-yellow-400"
-                      >
-                        {cap} capability
-                      </span>
-                    ))}
-                    {example.mcp.map((connector) => (
-                      <span
-                        key={connector}
-                        className="px-4 py-2 bg-purple-500/20 border border-purple-500/50 rounded-lg text-lg text-purple-400"
-                      >
-                        MCP: {connector}
-                      </span>
-                    ))}
+                  {/* Metrics */}
+                  <div className="flex gap-5">
+                    <div className="text-center bg-slate-800/50 border border-slate-700 px-4 py-2">
+                      <div className="text-2xl font-bold text-white font-mono">{example.metrics.iterations}</div>
+                      <div className="text-sm text-slate-400">iterations</div>
+                    </div>
+                    <div className="text-center bg-slate-800/50 border border-slate-700 px-4 py-2">
+                      <div className="text-2xl font-bold text-white font-mono">{example.metrics.context}</div>
+                      <div className="text-sm text-slate-400">tokens</div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Metrics */}
-                <div className="flex gap-6">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-white">{example.metrics.iterations}</div>
-                    <div className="text-lg text-text-secondary">iterations</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-white">{example.metrics.context}</div>
-                    <div className="text-lg text-text-secondary">context</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Bottom note */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isVisible(3) ? 1 : 0 }}
-          className="mt-6 text-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: isVisible(3) ? 1 : 0, y: isVisible(3) ? 0 : 10 }}
+          className="mt-5 flex justify-center"
         >
-          <span className="text-2xl text-green-400 font-semibold">
-            Predictable input → Predictable output
-          </span>
+          <div className="bg-green-500/10 border-2 border-green-500/40 px-6 py-3 shadow-[4px_4px_0px_0px_rgba(34,197,94,0.3)]">
+            <span className="text-xl text-green-400 font-bold">
+              Predictable input → Predictable output
+            </span>
+          </div>
         </motion.div>
       </div>
     </SlideLayout>

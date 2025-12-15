@@ -54,7 +54,7 @@ const sections = [
         company: 'BABEL.JS',
         brandIcon: SiBabel,
         brandColor: '#F9DC3E',
-        subtitle: 'Core Team Member',
+        subtitle: 'Team Member From 2018',
         items: [
           'The JavaScript compiler',
           "everyone uses (but doesn't know it)",
