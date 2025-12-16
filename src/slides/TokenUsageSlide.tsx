@@ -111,7 +111,7 @@ export function TokenUsageSlide() {
               transition={{ delay: 0.3 }}
               className="mt-5 text-center bg-purple-500/20 border border-purple-500/40 py-3"
             >
-              <div className="text-3xl font-black text-purple-400 font-mono">100K+ tokens</div>
+              <div className="text-3xl font-black text-purple-400 font-mono">200K+ tokens</div>
             </motion.div>
           </motion.div>
 

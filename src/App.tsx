@@ -47,10 +47,11 @@ import { ReviewingScopeSlide } from '@/slides/ReviewingScopeSlide'
 import { UserFeedbackScopeSlide } from '@/slides/UserFeedbackScopeSlide'
 import { ScopesVsProblemsSlide } from '@/slides/ScopesVsProblemsSlide'
 import { ResultsSlide } from '@/slides/ResultsSlide'
+import { CodeAgentDemoSlide } from '@/slides/CodeAgentDemoSlide'
 import { MaintainSlide } from '@/slides/MaintainSlide'
 import { UnbuiltSlide } from '@/slides/UnbuiltSlide'
 import { RoutinesSlide } from '@/slides/RoutinesSlide'
-import { WhenToUseScopesSlide } from '@/slides/WhenToUseScopesSlide'
+// import { WhenToUseScopesSlide } from '@/slides/WhenToUseScopesSlide'
 import { PrinciplesSlide } from '@/slides/PrinciplesSlide'
 import { RealizationSlide } from '@/slides/RealizationSlide'
 import { ThanksSlide } from '@/slides/ThanksSlide'
@@ -59,7 +60,7 @@ function App() {
   return (
     <Presentation>
       <TitleSlide />
-      <JourneySlide />
+      {/* <JourneySlide /> */}
       <AboutSlide />
       <DeterminismSlide />
       <LLMChaosSlide />
@@ -106,10 +107,11 @@ function App() {
       {/* <UserFeedbackScopeSlide /> */}
       <ScopesVsProblemsSlide />
       <ResultsSlide />
+      <CodeAgentDemoSlide />
       <MaintainSlide />
       <UnbuiltSlide />
       <RoutinesSlide />
-      <WhenToUseScopesSlide />
+      {/* <WhenToUseScopesSlide /> */}
       <PrinciplesSlide />
       <RealizationSlide />
       <ThanksSlide />

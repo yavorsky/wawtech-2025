@@ -24,7 +24,7 @@ const sections = [
         ],
       },
       {
-        period: '2022-2024',
+        period: '2023-2025',
         company: 'NETFLIX',
         brandIcon: SiNetflix,
         brandColor: '#E50914',
@@ -34,12 +34,12 @@ const sections = [
         ],
       },
       {
-        period: '2024-now',
+        period: '2025-now',
         company: 'WRITER.COM',
         items: [
-          'Senior Staff Engineer (1 year)',
+          'Principle Engineer (1 year)',
           'Built Action AI (almost from scratch)',
-          'Solo architect, production AI agents',
+          'Production AI agents',
         ],
       },
     ],
@@ -54,7 +54,7 @@ const sections = [
         company: 'BABEL.JS',
         brandIcon: SiBabel,
         brandColor: '#F9DC3E',
-        subtitle: 'Team Member From 2018',
+        subtitle: 'Team Member From 2017',
         items: [
           'The JavaScript compiler',
           "everyone uses (but doesn't know it)",
@@ -256,16 +256,6 @@ export function AboutSlide() {
                 </motion.div>
               )}
             </AnimatePresence>
-
-            {!showContent && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center text-text-secondary text-3xl"
-              >
-                Press <kbd className="px-4 py-2 bg-surface text-cyan-400 font-mono mx-2 border-2 border-cyan-500/50 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.4)]">Space</kbd> to start
-              </motion.div>
-            )}
           </div>
         </div>
 

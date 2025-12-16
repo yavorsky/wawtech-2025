@@ -70,7 +70,7 @@ export function PrinciplesSlide() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl lg:text-5xl font-bold text-white">
-            Principles for Building <span className="text-cyan-400">AI Agents</span>
+            Principles for Building <span className="text-cyan-400">Scopes</span>
           </h1>
         </motion.div>
 

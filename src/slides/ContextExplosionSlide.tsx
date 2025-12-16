@@ -156,7 +156,7 @@ export function ContextExplosionSlide() {
   }, [hasStarted, isComplete, isPlaying])
 
   return (
-    <div className="w-full h-full bg-background flex flex-col p-8 lg:p-12">
+    <div className="w-full h-full bg-background flex flex-col p-8 lg:p-12 overflow-y-auto">
       {/* Header */}
       <div className="mb-6 flex justify-center">
         <FunTitle title="Context Explosion" subtitle="Problem 3" />
@@ -197,22 +197,22 @@ export function ContextExplosionSlide() {
 
           {/* Activity Log */}
           <div className="h-[550px] bg-surface border-2 border-white/20 flex flex-col transform -rotate-[0.3deg] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]">
-            <div className="px-4 py-2 border-b border-white/10 flex justify-between items-center shrink-0">
-              <span className="text-lg text-text-secondary font-bold">Agent Activity</span>
+            <div className="px-4 py-3 border-b border-white/10 flex justify-between items-center shrink-0">
+              <span className="text-xl text-text-secondary font-bold">Agent Activity</span>
               {isPlaying && (
                 <motion.span
                   animate={{ opacity: [1, 0.5, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
-                  className="text-cyan-400"
+                  className="text-cyan-400 text-lg"
                 >
                   Processing...
                 </motion.span>
               )}
             </div>
 
-            <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-2">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
               {!hasStarted && (
-                <div className="h-full flex items-center justify-center text-text-secondary text-xl">
+                <div className="h-full flex items-center justify-center text-text-secondary text-2xl">
                   Press Space to start simulation
                 </div>
               )}
@@ -220,7 +220,7 @@ export function ContextExplosionSlide() {
               {currentLogs.map((log, idx) => (
                 <div
                   key={idx}
-                  className={`text-sm p-3 rounded-lg border-l-4 ${
+                  className={`text-base p-4 border-l-4 ${
                     log.type === 'system' ? 'border-gray-500 bg-gray-500/10 text-gray-300' :
                     log.type === 'info' ? 'border-gray-500 bg-gray-500/10 text-gray-300' :
                     log.type === 'user' ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300' :
@@ -231,11 +231,11 @@ export function ContextExplosionSlide() {
                     'border-red-500 bg-red-500/10 text-red-300 font-bold'
                   }`}
                 >
-                  <div className="flex justify-between text-xs opacity-60 mb-1">
-                    <span className="uppercase">{log.type}</span>
+                  <div className="flex justify-between text-sm opacity-60 mb-1">
+                    <span className="uppercase font-bold">{log.type}</span>
                     <span>iter {log.iter}</span>
                   </div>
-                  {log.text}
+                  <div className="text-lg">{log.text}</div>
                 </div>
               ))}
             </div>
@@ -244,12 +244,12 @@ export function ContextExplosionSlide() {
 
         {/* Right - Visual Stack */}
         <div className="w-80 bg-surface border-2 border-white/20 p-6 flex flex-col transform rotate-[0.5deg] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]">
-          <div className="text-2xl text-white font-bold text-center mb-4">Context Window</div>
+          <div className="text-3xl text-white font-bold text-center mb-4">Context Window</div>
 
           <div className="flex-1 relative border border-white/10 rounded-lg bg-black/20">
             {/* Limit line at top */}
             <div className="absolute top-0 left-0 right-0 border-t-2 border-dashed border-red-500 z-10">
-              <span className="absolute top-1 right-1 text-xs text-red-400 font-bold">
+              <span className="absolute top-1 right-1 text-sm text-red-400 font-bold">
                 1M limit
               </span>
             </div>
@@ -260,7 +260,7 @@ export function ContextExplosionSlide() {
               className="absolute bottom-0 left-0 right-0 bg-slate-600 border-t border-white/20 flex items-center justify-center transition-all duration-300"
               style={{ height: `${(currentState.systemPrompt / CONTEXT_LIMIT) * 100}%` }}
             >
-              <span className="text-xs text-white font-bold">System</span>
+              <span className="text-sm text-white font-bold">System</span>
             </div>
 
             {/* Tool Defs - above system */}
@@ -271,7 +271,7 @@ export function ContextExplosionSlide() {
                 height: `${(currentState.toolDefs / CONTEXT_LIMIT) * 100}%`
               }}
             >
-              <span className="text-xs text-white font-bold">Tools Def</span>
+              <span className="text-sm text-white font-bold">Tools Def</span>
             </div>
 
             {/* User - above tool defs */}
@@ -284,7 +284,7 @@ export function ContextExplosionSlide() {
                 }}
               >
                 {(currentState.userTokens / CONTEXT_LIMIT) > 0.02 && (
-                  <span className="text-xs text-white font-bold">User</span>
+                  <span className="text-sm text-white font-bold">User</span>
                 )}
               </div>
             )}
@@ -299,7 +299,7 @@ export function ContextExplosionSlide() {
                 }}
               >
                 {(currentState.assistantTokens / CONTEXT_LIMIT) > 0.02 && (
-                  <span className="text-xs text-white font-bold">History</span>
+                  <span className="text-sm text-white font-bold">History</span>
                 )}
               </div>
             )}
@@ -314,7 +314,7 @@ export function ContextExplosionSlide() {
                 }}
               >
                 {(currentState.toolOutputs / CONTEXT_LIMIT) > 0.05 && (
-                  <span className="text-xs text-white font-bold">Tools</span>
+                  <span className="text-sm text-white font-bold">Tools</span>
                 )}
               </div>
             )}
@@ -329,7 +329,7 @@ export function ContextExplosionSlide() {
                 }}
               >
                 {(currentState.webTokens / CONTEXT_LIMIT) > 0.05 && (
-                  <span className="text-xs text-white font-bold">Web</span>
+                  <span className="text-sm text-white font-bold">Web</span>
                 )}
               </div>
             )}
@@ -344,7 +344,7 @@ export function ContextExplosionSlide() {
                 }}
               >
                 {(currentState.mcpTokens / CONTEXT_LIMIT) > 0.05 && (
-                  <span className="text-xs text-white font-bold">MCP</span>
+                  <span className="text-sm text-white font-bold">MCP</span>
                 )}
               </div>
             )}
@@ -364,29 +364,29 @@ export function ContextExplosionSlide() {
           </div>
 
           {/* Legend */}
-          <div className="mt-4 grid grid-cols-2 gap-2 text-xs shrink-0">
+          <div className="mt-4 grid grid-cols-2 gap-2 text-sm shrink-0">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-slate-600 rounded" />
+              <div className="w-3 h-3 bg-slate-600" />
               <span className="text-text-secondary">System</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-cyan-600 rounded" />
+              <div className="w-3 h-3 bg-cyan-600" />
               <span className="text-text-secondary">User</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-purple-600 rounded" />
+              <div className="w-3 h-3 bg-purple-600" />
               <span className="text-text-secondary">History</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-600 rounded" />
+              <div className="w-3 h-3 bg-green-600" />
               <span className="text-text-secondary">Tools</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-amber-600 rounded" />
+              <div className="w-3 h-3 bg-amber-600" />
               <span className="text-text-secondary">Web</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-pink-600 rounded" />
+              <div className="w-3 h-3 bg-pink-600" />
               <span className="text-text-secondary">MCP</span>
             </div>
           </div>
