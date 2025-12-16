@@ -68,8 +68,8 @@ export function RoutinesSlide() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{step.icon}</span>
                     <div>
-                      <div className={`font-bold ${colors.text}`}>{step.label}</div>
-                      <div className="text-sm text-slate-500">{step.description}</div>
+                      <div className={`font-bold text-lg ${colors.text}`}>{step.label}</div>
+                      <div className="text-lg text-slate-500">{step.description}</div>
                     </div>
                   </div>
                 </motion.div>

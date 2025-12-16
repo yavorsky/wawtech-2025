@@ -56,23 +56,23 @@ export function OutputInconsistencySlide() {
                 <div className="text-text-secondary space-y-2 text-base">
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-xl">✓</span>
-                    <span>React Query for data fetching</span>
+                    <span className="text-xl">React Query for data fetching</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-xl">✓</span>
-                    <span>Tailwind + shadcn/ui components</span>
+                    <span className="text-xl">Tailwind + shadcn/ui components</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-xl">✓</span>
-                    <span>Recharts for visualization</span>
+                    <span className="text-xl">Recharts for visualization</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-xl">✓</span>
-                    <span>Error boundaries, loading states</span>
+                    <span className="text-xl">Error boundaries, loading states</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-xl">✓</span>
-                    <span>Follows project conventions</span>
+                    <span className="text-xl">Follows project conventions</span>
                   </div>
                 </div>
               </div>
@@ -101,23 +101,23 @@ export function OutputInconsistencySlide() {
                 <div className="text-text-secondary space-y-2 text-base">
                   <div className="flex items-center gap-2">
                     <span className="text-red-400 text-xl">✗</span>
-                    <span>Switches to fetch() with .then()</span>
+                    <span className="text-xl">Switches to fetch() with .then()</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-red-400 text-xl">✗</span>
-                    <span>Inline styles, ignores Tailwind</span>
+                    <span className="text-xl">Inline styles, ignores Tailwind</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-red-400 text-xl">✗</span>
-                    <span>Chart.js instead of Recharts</span>
+                    <span className="text-xl">Chart.js instead of Recharts</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-red-400 text-xl">✗</span>
-                    <span>Hardcoded API keys in component</span>
+                    <span className="text-xl">Hardcoded API keys in component</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-red-400 text-xl">✗</span>
-                    <span>Breaks existing imports</span>
+                    <span className="text-xl">Breaks existing imports</span>
                   </div>
                 </div>
               </div>

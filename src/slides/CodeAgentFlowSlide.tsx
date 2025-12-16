@@ -123,10 +123,10 @@ function ScopeModal({ scope, colors }: { scope: Scope; colors: typeof colorClass
           <div className="space-y-4">
             {/* Context */}
             <div className="bg-slate-800/50 p-3">
-              <div className="text-sm text-slate-400 mb-2 font-bold">Context:</div>
+              <div className="text-xl text-slate-400 mb-2 font-bold">Context:</div>
               <div className="space-y-1">
                 {scope.details.context.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-base">
+                  <div key={i} className="flex items-center gap-2 text-xl">
                     <span className="text-green-400">+</span>
                     <span className="text-white">{item}</span>
                   </div>
@@ -140,13 +140,13 @@ function ScopeModal({ scope, colors }: { scope: Scope; colors: typeof colorClass
               {scope.details.tools.length > 0 ? (
                 <div className="flex flex-wrap gap-2">
                   {scope.details.tools.map((tool, i) => (
-                    <span key={i} className="px-2 py-1 bg-pink-500/20 border border-pink-500/40 text-pink-300 text-sm font-mono">
+                    <span key={i} className="px-2 py-1 bg-pink-500/20 border border-pink-500/40 text-pink-300 text-xl font-mono">
                       {tool}
                     </span>
                   ))}
                 </div>
               ) : (
-                <span className="text-slate-500 text-sm">None — pure routing</span>
+                <span className="text-slate-500 text-xl">None — pure routing</span>
               )}
             </div>
 
@@ -156,7 +156,7 @@ function ScopeModal({ scope, colors }: { scope: Scope; colors: typeof colorClass
                 <div className="text-sm text-slate-400 mb-2 font-bold">Phase example:</div>
                 <div className="space-y-1 font-mono">
                   {scope.details.phaseExample.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-base">
+                    <div key={i} className="flex items-center gap-2 text-xl">
                       <span className="text-cyan-400">{i + 1}.</span>
                       <span className="text-cyan-300">{item}</span>
                     </div>
@@ -171,7 +171,7 @@ function ScopeModal({ scope, colors }: { scope: Scope; colors: typeof colorClass
                 <div className="text-sm text-slate-400 mb-2 font-bold">NOT in context:</div>
                 <div className="space-y-1">
                   {scope.details.notIncluded.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
+                    <div key={i} className="flex items-center gap-2 text-xl">
                       <span className="text-red-400">-</span>
                       <span className="text-slate-400">{item}</span>
                     </div>
@@ -211,9 +211,9 @@ export function CodeAgentFlowSlide() {
 
         {/* Table Header */}
         <div className="grid grid-cols-[200px_1fr_1fr] gap-4 mb-3 px-2">
-          <div className="text-slate-500 font-bold text-lg">Scope</div>
-          <div className="text-slate-500 font-bold text-lg">What it gets</div>
-          <div className="text-slate-500 font-bold text-lg">What it produces</div>
+          <div className="text-slate-500 font-bold text-2xl">Scope</div>
+          <div className="text-slate-500 font-bold text-2xl">What it gets</div>
+          <div className="text-slate-500 font-bold text-2xl">What it produces</div>
         </div>
 
         {/* Table Rows */}
@@ -241,12 +241,12 @@ export function CodeAgentFlowSlide() {
                 </div>
 
                 {/* What it gets */}
-                <div className="text-white text-lg">
+                <div className="text-white text-2xl">
                   {scope.gets}
                 </div>
 
                 {/* What it produces */}
-                <div className="text-cyan-300 font-mono text-lg">
+                <div className="text-cyan-300 font-mono text-xl">
                   {scope.produces}
                 </div>
               </motion.div>

@@ -92,13 +92,13 @@ export function PrinciplesSlide() {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className={`text-5xl font-black ${colors.text}`}>{principle.number}</span>
-                  <span className="text-2xl text-white font-bold">{principle.title}</span>
+                  <span className="text-3xl text-white font-bold">{principle.title}</span>
                 </div>
                 <div className="space-y-2">
                   {principle.points.map((point, i) => (
-                    <div key={i} className="flex items-start gap-3">
+                    <div key={i} className="flex items-start gap-3 text-xl">
                       <span className={`${colors.text} mt-1`}>→</span>
-                      <span className="text-slate-300 text-lg">{point}</span>
+                      <span className="text-slate-300 text-2xl">{point}</span>
                     </div>
                   ))}
                 </div>

@@ -77,7 +77,7 @@ export function AirbusJokeSlide() {
               <span className="text-5xl">{feature.icon}</span>
               <div>
                 <h3 className="text-3xl font-bold text-white">{feature.title}</h3>
-                <p className="text-xl text-cyan-400 mt-1">{feature.subtitle}</p>
+                <p className="text-2xl text-cyan-400 mt-1">{feature.subtitle}</p>
               </div>
             </motion.div>
           ))}
